@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from "../components/login/Login"
-
+import Test from '../components/login/test'
 
 Vue.use(VueRouter)
 
@@ -24,7 +24,12 @@ Vue.use(VueRouter)
     path: '/Login',
     name: 'Login',
     component: Login
-  }
+  },
+    {
+      path: '/Test',
+      name: 'Test',
+      component: Test
+    }
 
 ]
 
