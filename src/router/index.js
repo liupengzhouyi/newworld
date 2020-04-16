@@ -3,6 +3,10 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from "../components/login/Login"
 import SaySome from '../views/SaySome'
+import SelectLogin from '../views/login/selectLogin'
+import StudentLogin from '../views/login/studentLogin/studentLogin'
+import SelectRegister from '../views/register/selectRegister'
+import AddFile from "../components/AddFile";
 
 Vue.use(VueRouter)
 
@@ -30,6 +34,27 @@ Vue.use(VueRouter)
       name: 'SaySome',
       component: SaySome
     },
+    {
+      path: '/SelectLogin',
+      name: 'SelectLogin',
+      component: SelectLogin
+    },
+    {
+      path: '/StudentLogin',
+      name: 'StudentLogin',
+      component: StudentLogin
+    },
+    {
+      path: '/SelectRegister',
+      name: 'SelectRegister',
+      component: SelectRegister
+    },
+    {
+      path: '/AddFile',
+      name: 'AddFile',
+      component: AddFile
+    },
+
 
 ]
 

@@ -6,6 +6,12 @@
             <h1>
                 {{ this.$GLOBAL.landing }}
             </h1>
+            <h1>
+                {{ this.$GLOBAL.userNumber }}
+            </h1>
+            <h1>
+                {{ this.$GLOBAL.userType }}
+            </h1>
         </div>
     </div>
 </template>

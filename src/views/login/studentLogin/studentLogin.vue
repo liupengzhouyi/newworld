@@ -1,8 +1,8 @@
 <template>
-    <div class="landing">
+    <div class="studentLogin">
         <div class="login_form">
             <div>
-                <img alt="Vue logo" src="../../assets/logo.png">
+                <img alt="Vue logo" src="../../../assets/logo.png">
             </div>
             <div>
                 <input type="text"  class="qxs-ic_user qxs-icon"  placeholder="用户名" v-model="userName">
@@ -21,10 +21,8 @@
 </template>
 
 <script>
-    //  import { userLogin } from '../../api/api';
-
     export default {
-        name: "landing",
+        name: "studentLogin",
         data() {
             return {
                 userName: '',
@@ -60,20 +58,20 @@
                     this.$axios.post(
                         '/student/landing',
                         {
-                                "password": this.password,
-                                "password1": "",
-                                "password2": "",
-                                "student": {
-                                    "id": 0,
-                                    "imageurl": "",
-                                    "isdelete": 0,
-                                    "name": "",
-                                    "password": 0,
-                                    "phonenumber": "",
-                                    "prodessionalid": 0,
-                                    "studentid": this.userName
-                                }
+                            "password": this.password,
+                            "password1": "",
+                            "password2": "",
+                            "student": {
+                                "id": 0,
+                                "imageurl": "",
+                                "isdelete": 0,
+                                "name": "",
+                                "password": 0,
+                                "phonenumber": "",
+                                "prodessionalid": 0,
+                                "studentid": this.userName
                             }
+                        }
                     ).then(
                         async function (response) {
                             console.log(response);
@@ -104,28 +102,25 @@
                 )
             },
             jump(){
-                //this.$router.push("/cart")
-                //传递的参数用{{ $route.query.goodsId }}获取
                 this.$router.push({path:'/SaySome',})
-                //this.$router.go(-2)
-                //后退两步
             },
         }
     }
 </script>
-<style>
+
+<style scoped>
     .login_form {
         padding-top: 5%;
         padding-left: 30%;
         padding-right: 30%;
     }
     .qxs-ic_user {
-        background: url("../../assets/icons/User/user-3-fill.svg") no-repeat;
+        background: url("../../../assets/icons/User/user-3-fill.svg") no-repeat;
         background-size: 13px 15px;
         background-position: 3%;
     }
     .qxs-ic_password {
-        background: url("../../assets/icons/System/lock-password-line.svg") no-repeat;
+        background: url("../../../assets/icons/System/lock-password-line.svg") no-repeat;
         background-size: 13px 15px;
         background-position: 3%;
         margin-bottom: 20px;
