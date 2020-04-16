@@ -1,5 +1,8 @@
 <template>
     <div class="selectLogin">
+        <div class="myTop">
+            <el-page-header @back="goBack" content="登陆"></el-page-header>
+        </div>
         <div class="nav">
             <el-row :gutter="12">
                 <el-col :span="8">
@@ -66,6 +69,9 @@
         methods: {
             studentLogin() {
                 this.$router.push({path: '/StudentLogin',})
+            },
+            goBack() {
+                this.$router.push({path:'/',})
             },
         }
     }

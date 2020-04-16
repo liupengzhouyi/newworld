@@ -1,5 +1,8 @@
 <template>
     <div class="selectRegister">
+        <div class="myTop">
+            <el-page-header @back="goBack" content="注册"></el-page-header>
+        </div>
         <div class="nav">
             <el-row :gutter="12">
                 <el-col :span="8">
@@ -62,6 +65,9 @@
         methods: {
             studentRegister() {
                 this.$router.push({path: '/StudentRegister',})
+            },
+            goBack() {
+                this.$router.push({path:'/',})
             },
         }
     }

@@ -1,5 +1,8 @@
 <template>
     <div class="studentLogin">
+        <div class="myTop">
+            <el-page-header @back="goBack" content="学生登陆"></el-page-header>
+        </div>
         <div class="login_form">
             <div>
                 <img alt="Vue logo" src="../../../assets/logo.png">
@@ -105,6 +108,9 @@
             jump(){
                 this.$router.push({path:'/SaySome',})
             },
+            goBack() {
+                this.$router.push({path:'/SelectRegister',})
+            },
         }
     }
 </script>
@@ -125,5 +131,8 @@
         background-size: 13px 15px;
         background-position: 3%;
         margin-bottom: 20px;
+    }
+    .myTop{
+        padding: 0.5%;
     }
 </style>

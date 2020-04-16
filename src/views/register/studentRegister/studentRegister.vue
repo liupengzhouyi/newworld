@@ -69,7 +69,7 @@
                 </el-form-item>
 
             </el-form>
-            <div>
+            <!--<div>
                 {{ reStudent }}
             </div>
             <div>
@@ -77,7 +77,7 @@
             </div>
             <div>
                 {{ imageInfo }}
-            </div>
+            </div>-->
         </div>
     </div>
 </template>
@@ -159,7 +159,7 @@
                 this.reStudent.resetFields();
             },
             goBack() {
-                console.log('go back');
+                this.$router.push({path:'/SelectRegister',})
             },
             delFile() {
                 this.fileList = [];
