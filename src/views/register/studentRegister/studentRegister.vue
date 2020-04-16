@@ -12,34 +12,28 @@
                             <el-image style="padding: 10px; width: 100px; height: 100px" :src="imageUrl" :fit="fill"></el-image>
                         </el-aside>
                         <el-container>
-                            <el-upload
-                                    class="upload"
-                                    ref="upload"
-                                    action="string"
-                                    :file-list="fileList"
-                                    :auto-upload="false"
-                                    :http-request="uploadFile"
-                                    :on-change="handleChange"
-                                    :on-preview="handlePreview"
-                                    :on-remove="handleRemove"
-                                    multiple="multiple">
-                                <ol>
-                                    <li>
-                                        <el-button slot="trigger" size="small" type="primary" @click="delFile">
-                                            选取文件
-                                        </el-button>
-                                    </li>
-                                    <li>
-                                        <el-button
-                                                style="margin-left: 10px;"
-                                                size="small"
-                                                type="success"
-                                                @click="submitUpload">
-                                            上传到服务器
-                                        </el-button>
-                                    </li>
-                                </ol>
-                            </el-upload>
+                            <div class="el-card__body">
+                                <el-row style="margin: 0">
+                                    <ul style="margin: 0;display: inline-block;">
+                                        <el-upload
+                                                class="upload"
+                                                ref="upload"
+                                                action="string"
+                                                :file-list="this.fileList"
+                                                :auto-upload="false"
+                                                :http-request="uploadFile"
+                                                :show-file-list="false"
+                                                :on-change="handleChange"
+                                                :on-preview="handlePreview"
+                                                :on-remove="handleRemove"
+                                                multiple="multiple">
+                                            <el-button slot="trigger" size="small" type="primary" icon="el-icon-edit" circle @click="delFile"></el-button>
+                                            <br>
+                                            <el-button  size="small" type="success" icon="el-icon-check" circle @click="submitUpload"></el-button>
+                                        </el-upload>
+                                    </ul>
+                                </el-row>
+                            </div>
                         </el-container>
                     </el-container>
                 </el-form-item>
@@ -73,12 +67,16 @@
                     <el-button type="primary" @click="submitForm('reStudent')">提交</el-button>
                     <el-button @click="resetForm()">重置</el-button>
                 </el-form-item>
+
             </el-form>
             <div>
                 {{ reStudent }}
             </div>
             <div>
                 {{ info }}
+            </div>
+            <div>
+                {{ imageInfo }}
             </div>
         </div>
     </div>
@@ -104,8 +102,9 @@
                             studentid: ""
                     }
                 },
-                imageUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+                imageUrl: require("../../../assets/icons/User/body-scan-fill.svg"),
                 info: null,
+                imageInfo: null,
             };
         },
 
@@ -151,11 +150,6 @@
                         console.log(response);
                         console.log(response.data);
                         that.info = response.data
-                        /*if (that.info.returnKey === true) {
-
-                        } else {
-
-                        }*/
                     }
                 )
             },
@@ -164,6 +158,39 @@
             },
             goBack() {
                 console.log('go back');
+            },
+            delFile() {
+                this.fileList = [];
+            },
+            handleChange(file, fileList) {
+                this.fileList = fileList;
+            },
+            uploadFile(file) {
+                this.formData.append("file", file.file);
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePreview(file) {
+                console.log(file);
+            },
+            submitUpload() {
+                let that = this;
+                let formData = new FormData();
+                formData.append("theme", this.theme);
+                formData.append("file", this.fileList[0].raw);
+
+                this.$axios.post('/File/uploadFile', formData,
+                    {"Content-Type": "multipart/form-data;charset=utf-8"}).
+                then(
+                    async function (response) {
+                        that.imageInfo = response.data
+                        if (response.data.returnKey === true) {
+                            that.imageUrl = response.data.returnObject.fileDownloadUri
+                            that.reStudent.student.imageurl = that.imageUrl
+                        }
+                    }
+                )
             }
         }
     }
@@ -185,6 +212,10 @@
     }
     .avatar-uploader .el-upload:hover {
         border-color: #409EFF;
+    }
+
+    .el-card__body {
+        padding: 15px 22px;
     }
 </style>
 
