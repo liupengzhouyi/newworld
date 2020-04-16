@@ -44,7 +44,6 @@
         },
         methods: {
             login() {
-
                 if (!this.userName) {
                     this.$message.error('请输入用户名');
                     return;

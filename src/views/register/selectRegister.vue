@@ -24,7 +24,7 @@
                                 </h2>
                             </div>
                             <el-image style="width: 200px; height: 200px" :src="url2" :fit="fill"></el-image>
-                            <el-button type="danger" >注册</el-button>
+                            <el-button type="danger" @click="studentRegister">注册</el-button>
                         </el-card>
                     </div>
                 </el-col>
@@ -59,6 +59,11 @@
                 url3: require("../../assets/icons/User/account-circle-fill.svg"),
             }
         },
+        methods: {
+            studentRegister() {
+                this.$router.push({path: '/StudentRegister',})
+            },
+        }
     }
 </script>
 

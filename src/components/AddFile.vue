@@ -7,21 +7,6 @@
                 </slot>
             </div>
             <div class="el-card__body">
-                <el-row style="margin: 10px 0 0 0">
-                    <span>上传目录：</span>
-                    <ul style="margin: 10px 0;display: inline-block;">
-                        <li>
-                            <el-select v-model="theme" placeholder="请选择">
-                                <el-option
-                                        v-for="item in options"
-                                        :key="item.value"
-                                        :label="item.label"
-                                        :value="item.value"
-                                ></el-option>
-                            </el-select>
-                        </li>
-                    </ul>
-                </el-row>
                 <el-row style="margin: 0px">
                     <ul style="margin: 0;display: inline-block;">
                         <li>
@@ -35,8 +20,7 @@
                                     :on-change="handleChange"
                                     :on-preview="handlePreview"
                                     :on-remove="handleRemove"
-                                    multiple="multiple"
-                            >
+                                    multiple="multiple">
                                 <el-button slot="trigger" size="small" type="primary" @click="delFile">选取文件</el-button>
                                 <el-button
                                         style="margin-left: 10px;"
