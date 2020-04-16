@@ -133,6 +133,8 @@
                 if (this.reStudent.password2 != this.reStudent.password1) {
                     this.$message.error('密码不一致');
                     return;
+                } else {
+                    this.reStudent.password = this.reStudent.password1;
                 }
                 if (this.reStudent.student.prodessionalid == 0) {
                     this.$message.error('请输入专业编号');

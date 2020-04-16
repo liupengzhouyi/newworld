@@ -16,6 +16,9 @@
                     <el-button type="success" @click="this.login">登陆</el-button>
                 </el-row>
             </div>
+            <div>
+                {{ info }}
+            </div>
         </div>
     </div>
 </template>
@@ -81,11 +84,9 @@
                                 that.$GLOBAL.landing = 1
                                 that.$GLOBAL.userNumber = that.userName
                                 that.$GLOBAL.userType = 3
-                                that.pp = "1234567"
                                 that.jump()
                             } else {
                                 that.$GLOBAL.landing = -1
-                                that.pp = "123456"
                             }
                         }
                     )
