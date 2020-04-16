@@ -19,6 +19,14 @@
             <div>
                 {{ info }}
             </div>
+            <div>
+                <h1>
+                    {{ this.$GLOBAL.landing }}
+                </h1>
+            </div>
+            <div>
+                {{ pp }}
+            </div>
         </div>
     </div>
 </template>
@@ -33,7 +41,8 @@
                 userName: '',
                 password: '',
                 isBtnLoading: false,
-                info: null
+                info: null,
+                pp: "1"
             }
         },
         created () {
@@ -77,10 +86,17 @@
                                 }
                             }
                     ).then(
-                        function (response) {
+                        async function (response) {
                             console.log(response);
                             console.log(response.data);
                             that.info = response.data
+                            if (that.info.returnKey === true) {
+                                that.$GLOBAL.landing = 1
+                                that.pp = "1234567"
+                            } else {
+                                that.$GLOBAL.landing = -1
+                                that.pp = "123456"
+                            }
                         }
                     )
                 }
