@@ -93,6 +93,7 @@
                             if (that.info.returnKey === true) {
                                 that.$GLOBAL.landing = 1
                                 that.pp = "1234567"
+                                that.jump()
                             } else {
                                 that.$GLOBAL.landing = -1
                                 that.pp = "123456"
@@ -110,7 +111,14 @@
                         that.info = response.data
                     }
                 )
-            }
+            },
+            jump(){
+                //this.$router.push("/cart")
+                //传递的参数用{{ $route.query.goodsId }}获取
+                this.$router.push({path:'/SaySome',})
+                //this.$router.go(-2)
+                //后退两步
+            },
         }
     }
 </script>
