@@ -5,17 +5,11 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-import axios from 'axios'
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-import VueAxios from 'vue-axios'
+import Resource from 'vue-resource';
+import axios from 'axios';
+Vue.prototype.$axios = axios
 
-import qs from 'qs';
-axios.interceptors.request.use((config) => {
-  config.data = qs.stringify(config.data);
-  return config;
-}, function(error) {
-  return Promise.reject(error);
-});
+axios.defaults.baseURL = '/api/'  //关键代码
 
 //自己写的样式
 import './style/theme.css'
@@ -23,7 +17,8 @@ import './style/characters.css'
 import store from './store'
 
 
-Vue.use(ElementUI, VueAxios, axios)
+Vue.use(ElementUI)
+Vue.use(Resource)
 
 Vue.config.productionTip = false
 
