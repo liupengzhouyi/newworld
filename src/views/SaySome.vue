@@ -12,6 +12,12 @@
             <h1>
                 {{ this.$GLOBAL.userType }}
             </h1>
+            <h1>
+                {{ this.$GLOBAL.imageurl }}
+            </h1>
+            <h1>
+                {{ this.$GLOBAL.userName }}
+            </h1>
         </div>
     </div>
 </template>

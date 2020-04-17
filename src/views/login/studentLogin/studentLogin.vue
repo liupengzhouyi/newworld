@@ -87,6 +87,8 @@
                                 that.$GLOBAL.landing = 1
                                 that.$GLOBAL.userNumber = that.userName
                                 that.$GLOBAL.userType = 3
+                                that.$GLOBAL.imageurl = that.info.returnObject.imageurl
+                                that.$GLOBAL.userName = that.info.returnObject.name
                                 that.jump()
                             } else {
                                 that.$GLOBAL.landing = -1
