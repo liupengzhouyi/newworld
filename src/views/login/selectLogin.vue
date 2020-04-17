@@ -40,7 +40,7 @@
                                 </h2>
                             </div>
                             <el-image style="width: 200px; height: 200px" :src="url3" :fit="fill"></el-image>
-                            <el-button type="success" >登陆</el-button>
+                            <el-button type="success" @click="conservatorLogin">登陆</el-button>
                         </el-card>
                     </div>
                 </el-col>
@@ -68,6 +68,9 @@
             },
             teacherLogin() {
                 this.$router.push({path: '/TeacherLogin',})
+            },
+            conservatorLogin() {
+                this.$router.push({path: '/ConservatorLogin',})
             },
             goBack() {
                 this.$router.push({path:'/',})

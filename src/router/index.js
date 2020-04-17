@@ -6,6 +6,7 @@ import SaySome from '../views/SaySome'
 import SelectLogin from '../views/login/selectLogin'
 import StudentLogin from '../views/login/studentLogin/studentLogin'
 import TeacherLogin from "../views/login/teacherLogin/teacherLogin";
+import ConservatorLogin from "../views/login/conservatorLogin/conservatorLogin";
 import SelectRegister from '../views/register/selectRegister'
 import AddFile from "../components/AddFile";
 import StudentRegister from '../views/register/studentRegister/studentRegister'
@@ -55,6 +56,11 @@ Vue.use(VueRouter)
       path: '/TeacherLogin',
       name: 'TeacherLogin',
       component: TeacherLogin
+    },
+    {
+      path: '/ConservatorLogin',
+      name: 'ConservatorLogin',
+      component: ConservatorLogin
     },
     {
       path: '/SelectRegister',

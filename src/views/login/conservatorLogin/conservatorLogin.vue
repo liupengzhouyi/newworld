@@ -1,22 +1,22 @@
 <template>
-    <div class="teacherLogin">
+    <div class="conservatorLogin">
         <div class="myTop">
-            <el-page-header @back="goBack" content="教师登陆"></el-page-header>
+            <el-page-header @back="goBack" content="管理员登陆"></el-page-header>
         </div>
         <div class="login_form">
             <div>
                 <img alt="Vue logo" src="../../../assets/logo.png">
             </div>
             <div>
-                <input type="text"  class="qxs-ic_user qxs-icon"  placeholder="用户名" v-model="userName">
+                <input type="text"  class="qxs-ic_user qxs-icon"  placeholder="phoneNumber" v-model="userName">
             </div>
             <div>
-                <input type="password"  class="qxs-ic_password qxs-icon"  placeholder="密码" v-model="password">
+                <input type="password"  class="qxs-ic_password qxs-icon"  placeholder="password" v-model="password">
             </div>
             <div>
                 <el-row>
-                    <el-button type="danger" @click="this.ppp">忘记密码</el-button>
-                    <el-button type="success" @click="this.login">登陆</el-button>
+                    <el-button type="danger" @click="ppp">忘记密码</el-button>
+                    <el-button type="success" @click="login">登陆</el-button>
                 </el-row>
             </div>
             <div>
@@ -24,7 +24,7 @@
             </div>
             <div>
                 <h1>
-                    {{ userName }}
+                    {{ reConservator }}
                 </h1>
             </div>
         </div>
@@ -33,7 +33,7 @@
 
 <script>
     export default {
-        name: "teacherLogin",
+        name: "conservatorLogin",
         data() {
             return {
                 userName: '',
@@ -53,7 +53,6 @@
         },
         methods: {
             login() {
-
                 if (!this.userName) {
                     this.$message.error('请输入用户名');
                     return;
@@ -64,26 +63,21 @@
                 }
                 if (this.userName === '' || this.password === '') {
                     alert('账号或密码不能为空');
-                    this.reTeacher.password = this.password;
-                    this.reTeacher.teacher.teachernumber = this.userName;
                 } else {
                     let that = this
                     this.$axios.post(
-                        '/teacher/landing',
+                        '/Conservator/landing',
                         {
-                            "password": this.password,
-                            "password1": "",
-                            "password2": "",
-                            "teacher": {
+                            "conservator": {
                                 "id": 0,
                                 "imageurl": "",
-                                "isdelete": 0,
                                 "name": "",
                                 "password": 0,
-                                "phonenumber": "",
-                                "professionalid": "",
-                                "teachernumber": this.userName
-                            }
+                                "phonenumber": this.userName
+                            },
+                            "password": this.password,
+                            "password1": "",
+                            "password2": ""
                         },
                     ).then(
                         async function (response) {
@@ -93,7 +87,7 @@
                             if (that.info.returnKey === true) {
                                 that.$GLOBAL.landing = 1
                                 that.$GLOBAL.userNumber = that.userName
-                                that.$GLOBAL.userType = 2
+                                that.$GLOBAL.userType = 1
                                 that.jump()
                             } else {
                                 that.$GLOBAL.landing = -1
