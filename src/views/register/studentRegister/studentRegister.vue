@@ -104,6 +104,7 @@
                 },
                 imageUrl: require("../../../assets/icons/User/body-scan-fill.svg"),
                 info: null,
+                returnObject: null,
                 imageInfo: null,
             };
         },
@@ -151,7 +152,17 @@
                     async function (response) {
                         console.log(response);
                         console.log(response.data);
-                        that.info = response.data
+                        that.info = response.data;
+                        that.returnObject = response.data.returnObject;
+                        that.registerOver(that.returnObject);
+                    }
+                )
+            },
+            registerOver(myParams) {
+                this.$router.push(
+                    {
+                        name: 'StudentRegisterOver',
+                        params: myParams,
                     }
                 )
             },
@@ -193,7 +204,7 @@
                         }
                     }
                 )
-            }
+            },
         }
     }
 </script>
