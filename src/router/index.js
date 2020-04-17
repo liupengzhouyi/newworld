@@ -11,8 +11,8 @@ import StudentRegister from '../views/register/studentRegister/studentRegister'
 import StudentRegisterOver from '../views/register/studentRegister/studentRegisterOver'
 import TeacherRegister from '../views/register/teacherRegister/teacherRegister'
 import TeacherRegisterOver from "../views/register/teacherRegister/TeacherRegisterOver";
-
-
+import ConservatorRegister from "../views/register/conservatorRegister/conservatorRegister";
+import ConservatorRegisterOver from "../views/register/conservatorRegister/conservatorRegisterOver";
 
 Vue.use(VueRouter)
 
@@ -74,6 +74,16 @@ Vue.use(VueRouter)
       path: '/TeacherRegisterOver',
       name: 'TeacherRegisterOver',
       component: TeacherRegisterOver
+    },
+    {
+      path: '/ConservatorRegister',
+      name: 'ConservatorRegister',
+      component: ConservatorRegister
+    },
+    {
+      path: '/ConservatorRegisterOver',
+      name: 'ConservatorRegisterOver',
+      component: ConservatorRegisterOver
     },
     {
       path: '/AddFile',
