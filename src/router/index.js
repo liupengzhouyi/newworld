@@ -5,6 +5,7 @@ import Login from "../components/login/Login"
 import SaySome from '../views/SaySome'
 import SelectLogin from '../views/login/selectLogin'
 import StudentLogin from '../views/login/studentLogin/studentLogin'
+import TeacherLogin from "../views/login/teacherLogin/teacherLogin";
 import SelectRegister from '../views/register/selectRegister'
 import AddFile from "../components/AddFile";
 import StudentRegister from '../views/register/studentRegister/studentRegister'
@@ -49,6 +50,11 @@ Vue.use(VueRouter)
       path: '/StudentLogin',
       name: 'StudentLogin',
       component: StudentLogin
+    },
+    {
+      path: '/TeacherLogin',
+      name: 'TeacherLogin',
+      component: TeacherLogin
     },
     {
       path: '/SelectRegister',

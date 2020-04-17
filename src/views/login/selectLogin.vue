@@ -13,8 +13,8 @@
                                     {{ say1 }}
                                 </h2>
                             </div>
-                            <el-image style="width: 200px; height: 200px" :src="url6" :fit="fill"></el-image>
-                            <el-button type="success" >登陆</el-button>
+                            <el-image style="width: 200px; height: 200px" :src="url1" :fit="fill"></el-image>
+                            <el-button type="success" @click="teacherLogin">登陆</el-button>
                         </el-card>
                     </div>
                 </el-col>
@@ -26,7 +26,7 @@
                                     {{ say2 }}
                                 </h2>
                             </div>
-                            <el-image style="width: 200px; height: 200px" :src="url5" :fit="fill"></el-image>
+                            <el-image style="width: 200px; height: 200px" :src="url2" :fit="fill"></el-image>
                             <el-button type="success" @click="studentLogin">登陆</el-button>
                         </el-card>
                     </div>
@@ -39,7 +39,7 @@
                                     {{ say3 }}
                                 </h2>
                             </div>
-                            <el-image style="width: 200px; height: 200px" :src="url4" :fit="fill"></el-image>
+                            <el-image style="width: 200px; height: 200px" :src="url3" :fit="fill"></el-image>
                             <el-button type="success" >登陆</el-button>
                         </el-card>
                     </div>
@@ -60,15 +60,14 @@
                 url1: require("../../assets/icons/User/body-scan-fill.svg"),
                 url2: require("../../assets/icons/User/admin-line.svg"),
                 url3: require("../../assets/icons/User/account-circle-fill.svg"),
-                url4: "http://127.0.0.1:8080/File/downloadFile/%E6%88%AA%E5%B1%8F2020-04-07%20%E4%B8%8B%E5%8D%887.01.05.png",
-                url5: 'http://127.0.0.1:8080/File/downloadFile/rxdctfvygbuhnijtfvygbu.png',
-                url6: 'http://127.0.0.1:8080/File/downloadFile/快结婚吧.png',
-
             }
         },
         methods: {
             studentLogin() {
                 this.$router.push({path: '/StudentLogin',})
+            },
+            teacherLogin() {
+                this.$router.push({path: '/TeacherLogin',})
             },
             goBack() {
                 this.$router.push({path:'/',})
