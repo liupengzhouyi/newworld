@@ -9,6 +9,9 @@ import SelectRegister from '../views/register/selectRegister'
 import AddFile from "../components/AddFile";
 import StudentRegister from '../views/register/studentRegister/studentRegister'
 import StudentRegisterOver from '../views/register/studentRegister/studentRegisterOver'
+import TeacherRegister from '../views/register/teacherRegister/teacherRegister'
+import TeacherRegisterOver from "../views/register/teacherRegister/TeacherRegisterOver";
+
 
 
 Vue.use(VueRouter)
@@ -61,6 +64,16 @@ Vue.use(VueRouter)
       path: '/StudentRegisterOver',
       name: 'StudentRegisterOver',
       component: StudentRegisterOver
+    },
+    {
+      path: '/TeacherRegister',
+      name: 'TeacherRegister',
+      component: TeacherRegister
+    },
+    {
+      path: '/TeacherRegisterOver',
+      name: 'TeacherRegisterOver',
+      component: TeacherRegisterOver
     },
     {
       path: '/AddFile',

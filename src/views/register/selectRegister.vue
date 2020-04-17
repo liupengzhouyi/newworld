@@ -14,7 +14,7 @@
                                 </h2>
                             </div>
                             <el-image style="width: 200px; height: 200px" :src="url1" :fit="fill"></el-image>
-                            <el-button type="danger" >注册</el-button>
+                            <el-button type="danger" @click="teacherRegister">注册</el-button>
                         </el-card>
                     </div>
                 </el-col>
@@ -65,6 +65,9 @@
         methods: {
             studentRegister() {
                 this.$router.push({path: '/StudentRegister',})
+            },
+            teacherRegister() {
+                this.$router.push({path: '/TeacherRegister',})
             },
             goBack() {
                 this.$router.push({path:'/',})
