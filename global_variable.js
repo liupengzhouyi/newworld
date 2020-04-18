@@ -2,6 +2,7 @@ const baseURL = 'www.baidu.com'
 const token = '123456'
 const userSite = '林花落了春红，太匆匆'
 const userType = 0
+const userID = 0
 const userNumber = "0"
 const userName = ""
 const imageurl = ""
@@ -16,6 +17,7 @@ export default {
     token,
     userSite,
     userType,
+    userID,
     userNumber,
     userName,
     imageurl,

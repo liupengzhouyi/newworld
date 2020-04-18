@@ -92,10 +92,12 @@
                             that.info = response.data
                             if (that.info.returnKey === true) {
                                 that.$GLOBAL.landing = 1
+                                that.$GLOBAL.userID = that.info.returnObject.id
                                 that.$GLOBAL.userNumber = that.userName
                                 that.$GLOBAL.userType = 2
                                 that.$GLOBAL.imageurl = that.info.returnObject.imageurl
                                 that.$GLOBAL.userName = that.info.returnObject.name
+
                                 that.jump()
                             } else {
                                 that.$GLOBAL.landing = -1

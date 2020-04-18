@@ -17,7 +17,7 @@ import TeacherRegisterOver from "../views/register/teacherRegister/TeacherRegist
 import ConservatorRegister from "../views/register/conservatorRegister/conservatorRegister";
 import ConservatorRegisterOver from "../views/register/conservatorRegister/conservatorRegisterOver";
 import UploadTitle from "../views/teacher/uploadTitle/uploadTitle";
-
+import ShowMyTitle from "../views/teacher/title/showMyTitle";
 
 
 import SaySome from '../views/SaySome'
@@ -124,6 +124,12 @@ Vue.use(VueRouter)
       name: 'Professiona',
       component: Professiona
     },
+    {
+      path: '/ShowMyTitle',
+      name: 'ShowMyTitle',
+      component: ShowMyTitle
+    },
+
 
 
 
