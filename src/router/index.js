@@ -8,13 +8,18 @@ import StudentLogin from '../views/login/studentLogin/studentLogin'
 import TeacherLogin from "../views/login/teacherLogin/teacherLogin";
 import ConservatorLogin from "../views/login/conservatorLogin/conservatorLogin";
 import SelectRegister from '../views/register/selectRegister'
-import AddFile from "../components/AddFile";
 import StudentRegister from '../views/register/studentRegister/studentRegister'
 import StudentRegisterOver from '../views/register/studentRegister/studentRegisterOver'
 import TeacherRegister from '../views/register/teacherRegister/teacherRegister'
 import TeacherRegisterOver from "../views/register/teacherRegister/TeacherRegisterOver";
 import ConservatorRegister from "../views/register/conservatorRegister/conservatorRegister";
 import ConservatorRegisterOver from "../views/register/conservatorRegister/conservatorRegisterOver";
+import UploadTitle from "../views/teacher/uploadTitle/uploadTitle";
+
+
+
+
+import AddFile from "../components/AddFile";
 
 Vue.use(VueRouter)
 
@@ -98,10 +103,27 @@ Vue.use(VueRouter)
       component: ConservatorRegisterOver
     },
     {
+      path: '/UploadTitle',
+      name: 'UploadTitle',
+      component: UploadTitle
+    },
+
+
+
+
+
+
+
+
+
+
+
+    {
       path: '/AddFile',
       name: 'AddFile',
       component: AddFile
     },
+
 
 
 

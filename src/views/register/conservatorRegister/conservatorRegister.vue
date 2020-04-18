@@ -60,7 +60,7 @@
                 </el-form-item>
 
             </el-form>
-            <!--<div>
+            <div>
                 {{ reConservator }}
             </div>
             <div>
@@ -68,7 +68,7 @@
             </div>
             <div>
                 {{ imageInfo }}
-            </div>-->
+            </div>
         </div>
     </div>
 </template>
