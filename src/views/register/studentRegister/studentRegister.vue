@@ -56,8 +56,9 @@
 
                 <el-form-item label="专业编号">
                     <el-input style="width: 80%" v-model.number="reStudent.student.prodessionalid"></el-input>
-                    <el-button type="primary" @click="resetForm('reStudent')">查看专业编号</el-button>
+                    <el-button type="primary" @click="getProfession()">查看专业编号</el-button>
                 </el-form-item>
+
 
                 <el-form-item label="联系方式">
                     <el-input v-model.number="reStudent.student.phonenumber"></el-input>
@@ -106,6 +107,10 @@
                 info: null,
                 returnObject: null,
                 imageInfo: null,
+                myway: {
+                    way: "StudentRegister",
+                },
+
             };
         },
 
@@ -171,6 +176,9 @@
             },
             goBack() {
                 this.$router.push({path:'/SelectRegister',})
+            },
+            getProfession() {
+                this.$router.push({path: '/StudentProfessiona',})
             },
             delFile() {
                 this.fileList = [];

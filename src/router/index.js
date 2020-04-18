@@ -2,15 +2,17 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from "../components/login/Login"
-import SaySome from '../views/SaySome'
+import Professiona from "../components/professiona/professiona";
 import SelectLogin from '../views/login/selectLogin'
 import StudentLogin from '../views/login/studentLogin/studentLogin'
 import TeacherLogin from "../views/login/teacherLogin/teacherLogin";
 import ConservatorLogin from "../views/login/conservatorLogin/conservatorLogin";
 import SelectRegister from '../views/register/selectRegister'
 import StudentRegister from '../views/register/studentRegister/studentRegister'
+import StudentProfessiona from "../views/register/studentRegister/studentProfessiona";
 import StudentRegisterOver from '../views/register/studentRegister/studentRegisterOver'
-import TeacherRegister from '../views/register/teacherRegister/teacherRegister'
+import TeacherRegister from '../views/register/teacherRegister/teacherRegister';
+import TeacherProfessiona from "../views/register/teacherRegister/teacherProfessiona";
 import TeacherRegisterOver from "../views/register/teacherRegister/TeacherRegisterOver";
 import ConservatorRegister from "../views/register/conservatorRegister/conservatorRegister";
 import ConservatorRegisterOver from "../views/register/conservatorRegister/conservatorRegisterOver";
@@ -18,7 +20,7 @@ import UploadTitle from "../views/teacher/uploadTitle/uploadTitle";
 
 
 
-
+import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
 
 Vue.use(VueRouter)
@@ -78,6 +80,11 @@ Vue.use(VueRouter)
       component: StudentRegister
     },
     {
+      path: '/StudentProfessiona',
+      name: 'StudentProfessionar',
+      component: StudentProfessiona
+    },
+    {
       path: '/StudentRegisterOver',
       name: 'StudentRegisterOver',
       component: StudentRegisterOver
@@ -86,6 +93,11 @@ Vue.use(VueRouter)
       path: '/TeacherRegister',
       name: 'TeacherRegister',
       component: TeacherRegister
+    },
+    {
+      path: '/TeacherProfessiona',
+      name: 'TeacherProfessiona',
+      component: TeacherProfessiona
     },
     {
       path: '/TeacherRegisterOver',
@@ -107,6 +119,12 @@ Vue.use(VueRouter)
       name: 'UploadTitle',
       component: UploadTitle
     },
+    {
+      path: '/Professiona',
+      name: 'Professiona',
+      component: Professiona
+    },
+
 
 
 

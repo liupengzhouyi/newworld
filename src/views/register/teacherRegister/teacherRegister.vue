@@ -56,7 +56,7 @@
 
                 <el-form-item label="专业编号">
                     <el-input style="width: 80%" v-model.number="reTeacher.teacher.professionalid"></el-input>
-                    <el-button type="primary" @click="resetForm('reTeacher')">查看专业编号</el-button>
+                    <el-button type="primary" @click="getProfession()">查看专业编号</el-button>
                 </el-form-item>
 
                 <el-form-item label="联系方式">
@@ -161,6 +161,9 @@
             },
             goBack() {
                 this.$router.push({path:'/SelectRegister',})
+            },
+            getProfession() {
+                this.$router.push({path: '/TeacherProfessiona',})
             },
             delFile() {
                 this.fileList = [];
