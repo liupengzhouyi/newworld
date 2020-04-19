@@ -32,7 +32,7 @@
                 </el-table-column>
                 <el-table-column label="操作">
                     <template slot-scope="scope">
-                        <el-button size="mini" @click="getTeacherTitle(scope.$index, scope.row)">查看教师选题</el-button>
+                        <el-button size="mini" @click="toPages(scope.row)">查看教师选题</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -89,7 +89,17 @@
             },
             handleDelete(index, row) {
                 console.log(index, row);
-            }
+            },
+            toPages(row) {
+                this.$router.push(
+                    {
+                        name: 'TeacherTitle',
+                        params: {
+                            teachernumber: row.teachernumber,
+                        }
+                    }
+                )
+            },
         }
 
     }

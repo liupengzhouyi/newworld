@@ -20,7 +20,7 @@ import UploadTitle from "../views/teacher/uploadTitle/uploadTitle";
 import ShowMyTitle from "../views/teacher/title/showMyTitle";
 import SelectProfessionTeacher from "../views/student/selectTeacher/selectProfessionTeacher";
 import SelectCollegeTeacher from "../views/student/selectTeacher/selectCollegeTeacher";
-
+import TeacherTitle from "../views/student/title/teacherTitle/teacherTitle";
 
 
 import SaySome from '../views/SaySome'
@@ -141,6 +141,11 @@ Vue.use(VueRouter)
       path: "/SelectCollegeTeacher",
       name: 'SelectCollegeTeacher',
       component: SelectCollegeTeacher,
+    },
+    {
+      path: '/TeacherTitle',
+      name: 'TeacherTitle',
+      component: TeacherTitle,
     },
 
 
