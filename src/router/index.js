@@ -18,6 +18,9 @@ import ConservatorRegister from "../views/register/conservatorRegister/conservat
 import ConservatorRegisterOver from "../views/register/conservatorRegister/conservatorRegisterOver";
 import UploadTitle from "../views/teacher/uploadTitle/uploadTitle";
 import ShowMyTitle from "../views/teacher/title/showMyTitle";
+import SelectProfessionTeacher from "../views/student/selectTeacher/selectProfessionTeacher";
+import SelectCollegeTeacher from "../views/student/selectTeacher/selectCollegeTeacher";
+
 
 
 import SaySome from '../views/SaySome'
@@ -129,6 +132,17 @@ Vue.use(VueRouter)
       name: 'ShowMyTitle',
       component: ShowMyTitle
     },
+    {
+      path: "/SelectProfessionTeacher",
+      name: 'SelectProfessionTeacher',
+      component: SelectProfessionTeacher,
+    },
+    {
+      path: "/SelectCollegeTeacher",
+      name: 'SelectCollegeTeacher',
+      component: SelectCollegeTeacher,
+    },
+
 
 
 

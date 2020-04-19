@@ -7,7 +7,7 @@ const userNumber = "0"
 const userName = ""
 const imageurl = ""
 const landing = 0
-
+const professionalid = 0
 
 
 
@@ -22,4 +22,6 @@ export default {
     userName,
     imageurl,
     landing,
+    professionalid,
+
 }
