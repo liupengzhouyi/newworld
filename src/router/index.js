@@ -21,7 +21,7 @@ import ShowMyTitle from "../views/teacher/title/showMyTitle";
 import SelectProfessionTeacher from "../views/student/selectTeacher/selectProfessionTeacher";
 import SelectCollegeTeacher from "../views/student/selectTeacher/selectCollegeTeacher";
 import TeacherTitle from "../views/student/title/teacherTitle/teacherTitle";
-
+import DeleteTitle from "../views/teacher/title/deleteTitle";
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
@@ -147,6 +147,12 @@ Vue.use(VueRouter)
       name: 'TeacherTitle',
       component: TeacherTitle,
     },
+    {
+      path: '/DeleteTitle',
+      name: 'DeleteTitle',
+      component: DeleteTitle
+    },
+
 
 
 

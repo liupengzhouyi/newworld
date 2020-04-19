@@ -41,9 +41,14 @@
                 </el-table-column>
                 <el-table-column label="删除" width="110" align="center">
                     <template slot-scope="scope">
-                        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" :disabled=lpDelete(scope.row.isselect)>
-                            删除
-                        </el-button>
+                        <el-popover placement="top" width="160" v-model="visible">
+                            <p>这个毕业设计选题确定删除吗？</p>
+                            <div style="text-align: right; margin: 0">
+                                <el-button size="mini" type="text" @click="visible = false">取消</el-button>
+                                <el-button type="primary" size="mini" @click="lpDeleteTitle(scope.row)" :disabled=lpDelete(scope.row.isselect)>确定</el-button>
+                            </div>
+                            <el-button size="mini" type="danger" slot="reference" :disabled="lpDelete(scope.row.isselect)">删除</el-button>
+                        </el-popover>
                     </template>
                 </el-table-column>
                 <el-table-column label="查看申请" width="110" align="center">
@@ -55,9 +60,14 @@
                 </el-table-column>
                 <el-table-column label="重新选题" width="110">
                     <template slot-scope="scope">
-                        <el-button size="mini" type="warning" @click="handleDelete(scope.$index, scope.row)" :disabled="lpReselect(scope.row.isselect)">
-                            重新选题
-                        </el-button>
+                        <el-popover placement="top" width="160" v-model="visible">
+                            <p>确定重置此选题吗？</p>
+                            <div style="text-align: right; margin: 0">
+                                <el-button size="mini" type="text" @click="visible = false">取消</el-button>
+                                <el-button type="primary" size="mini" @click="handleDelete(scope.$index, scope.row)">确定</el-button>
+                            </div>
+                            <el-button size="mini" type="warning" slot="reference" :disabled="lpReselect(scope.row.isselect)">重新选题</el-button>
+                        </el-popover>
                     </template>
                 </el-table-column>
                 <el-table-column label="完成情况" width="110">
@@ -69,7 +79,7 @@
                 </el-table-column>
             </el-table>
         </div>
-        <!--<div>
+        <div>
             <p>
                 {{ info }}
             </p>
@@ -78,7 +88,7 @@
             <p>
                 {{ returnObject }}
             </p>
-        </div>-->
+        </div>
     </div>
 </template>
 
@@ -90,6 +100,7 @@
                 thisTitle: "我的毕业设计选题",
                 info: null,
                 returnObject: null,
+
             }
         },
         created() {
@@ -157,6 +168,17 @@
                     return false;
                 }
             },
+            lpDeleteTitle(row) {
+                this.$router.push(
+                    {
+                        name: 'DeleteTitle',
+                        params: {
+                            id: row.id,
+                        }
+                    }
+                )
+            },
+
 
 
         },
