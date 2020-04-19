@@ -96,6 +96,8 @@
                         name: 'TeacherTitle',
                         params: {
                             teachernumber: row.teachernumber,
+                            key: 1,
+
                         }
                     }
                 )

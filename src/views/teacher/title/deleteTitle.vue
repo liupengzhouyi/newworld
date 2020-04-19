@@ -67,16 +67,15 @@
                     </div>
                 </div>
             </el-card>
-            <div>
-                <p>{{ deleteInfo }}</p>
-            </div>
         </div>
         <!--<div>
             <h2>
                 ID : {{ id }}
             </h2>
         </div>
-
+        <div>
+            <p>{{ deleteInfo }}</p>
+        </div>
         <div>
             {{ info }}
         </div>

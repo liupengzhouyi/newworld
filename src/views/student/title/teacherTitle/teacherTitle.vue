@@ -1,11 +1,13 @@
 <template>
     <div class="teacherTitle">
+        <div class="myTop">
+            <el-page-header @back="goBack" content="教师信息"></el-page-header>
+        </div>
         <div>
             <h1>
                 {{ title }}
             </h1>
         </div>
-
         <div class="lpMyWay">
             <el-table
                     :data="returnObject"
@@ -155,6 +157,13 @@
                     return true;
                 } else {
                     return false;
+                }
+            },
+            goBack() {
+                if (this.$route.params.key == 1) {
+                    this.$router.push({path:'/SelectCollegeTeacher',})
+                } else {
+                    this.$router.push({path:'/SelectProfessionTeacher',})
                 }
             },
         }
