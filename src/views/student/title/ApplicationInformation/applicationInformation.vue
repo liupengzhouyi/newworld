@@ -8,6 +8,16 @@
         </div>
         <div class="lpMyWay">
             <el-table :data="returnObject" border style="width: 100%">
+                <el-table-column prop="titleid" label="教师" width="90">
+                    <template slot-scope="scope">
+                        {{ scope.row.teacher.name }}
+                    </template>
+                </el-table-column>
+                <el-table-column prop="titleid" label="教师编号" width="90">
+                    <template slot-scope="scope">
+                        {{ scope.row.teacher.teachernumber }}
+                    </template>
+                </el-table-column>
                 <el-table-column prop="titleid" label="题目名称" width="200">
                     <template slot-scope="scope">
                         《{{ scope.row.project.title }}》
@@ -27,7 +37,7 @@
                 </el-table-column>
                 <el-table-column label="申请状态" width="120">
                     <template slot-scope="scope">
-                        {{ doPass(scope.row.selecttitle.pass) }}
+                        <p :style="color =  passColor(scope.row)">{{ doPass(scope.row.selecttitle.pass) }}</p>
                     </template>
                 </el-table-column>
                 <el-table-column prop="applicationdata" label="审批日期" width="170">
@@ -35,9 +45,9 @@
                         {{ scope.row.selecttitle.passdata }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="passdata" label="删除申请" width="140">
+                <el-table-column prop="passdata" label="删除申请" width="110">
                     <template slot-scope="scope">
-                        <el-popover placement="top" width="120" v-model="visible" align="center">
+                        <el-popover placement="top" width="100" v-model="visible" align="center">
                             <p>确定不通过该申请吗？</p>
                             <div style="text-align: right; margin: 0">
                                 <el-button size="mini" type="text" @click="visible = false">取消</el-button>
@@ -48,9 +58,9 @@
                         </el-popover>
                     </template>
                 </el-table-column>
-                <el-table-column prop="passdata" label="申请放弃" width="140">
+                <el-table-column prop="passdata" label="申请放弃" width="110">
                     <template slot-scope="scope">
-                        <el-popover placement="top" width="120" v-model="visible" align="center">
+                        <el-popover placement="top" width="100" v-model="visible" align="center">
                             <p>确定不通过该申请吗？</p>
                             <div style="text-align: right; margin: 0">
                                 <el-button size="mini" type="text" @click="visible = false">取消</el-button>
@@ -112,7 +122,7 @@
         methods: {
             doPass(key) {
                 if (key == 0) {
-                    return "未处理"
+                    return '#ffde09'
                 } else if (key == 1) {
                     return "申请通过"
                 } else if (key == -1) {
@@ -145,6 +155,18 @@
             },
             download(path) {
                 return path
+            },
+            passColor(row) {
+                let key = row.selecttitle.pass
+                if (key == 0) {
+                    return '#020202';
+                } else if (key == 1) {
+                    return '#0fe306';
+                } else if (key == -1) {
+                    return '#d71c38';
+                } else {
+                    return '#020202';
+                }
             },
             getPass(row) {
                 let pass = row.selecttitle.pass
@@ -220,7 +242,7 @@
 <style scoped>
     .lpMyWay {
         align-items: center;
-        width: 80%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
