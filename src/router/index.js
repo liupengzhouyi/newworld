@@ -24,7 +24,7 @@ import TeacherTitle from "../views/student/title/teacherTitle/teacherTitle";
 import DeleteTitle from "../views/teacher/title/deleteTitle";
 import TitleApplication from "../views/student/title/titleApplication/titleApplication";
 import TitleApplicationInformation from "../views/teacher/title/titleApplicationInformation/titleApplicationInformation";
-
+import ApplicationInformation from "../views/student/title/ApplicationInformation/applicationInformation";
 
 
 import SaySome from '../views/SaySome'
@@ -166,6 +166,12 @@ Vue.use(VueRouter)
       name: 'TitleApplicationInformation',
       component: TitleApplicationInformation,
     },
+    {
+      path: '/ApplicationInformation',
+      name: 'ApplicationInformation',
+      component: ApplicationInformation,
+    },
+
 
 
 

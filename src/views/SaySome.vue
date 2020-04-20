@@ -26,40 +26,24 @@
             </h1>
         </div>
         <div>
-            <el-button @click="showMeTitle()">教师题目</el-button>
+            <Home></Home>
         </div>
 
-        <div>
-            <el-button @click="uploadTitle()">上传教师题目</el-button>
-        </div>
-        <div>
-            <el-button @click="findTeahcer1()">查看本专业教师</el-button>
-        </div>
-        <div>
-            <el-button @click="findTeacher2()">查看本系教师</el-button>
-        </div>
     </div>
 </template>
 
 <script>
     import HelloWorld from "../components/HelloWorld";
+    import Home from "./Home";
+
     export default {
         name: "SaySome",
         methods: {
-            showMeTitle() {
-                this.$router.push({path:'/ShowMyTitle',})
-            },
-            uploadTitle() {
-                this.$router.push({path:'/UploadTitle',})
-            },
-            findTeahcer1() {
-                this.$router.push({path:'/SelectProfessionTeacher',})
-            },
-            findTeacher2() {
-                this.$router.push({path:'/SelectCollegeTeacher',})
-            }
+
+
         },
         components: {
+            Home,
             HelloWorld
         }
     }
