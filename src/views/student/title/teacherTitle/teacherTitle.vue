@@ -44,9 +44,14 @@
                 </el-table-column>
                 <el-table-column label="申请" width="110" align="center">
                     <template slot-scope="scope">
-                        <el-button size="mini" type="primary" @click="handleDelete(scope.$index, scope.row)" :disabled=lpDelete(scope.row.isselect)>
-                            申请
-                        </el-button>
+                        <el-popover placement="top" width="160" v-model="visible">
+                            <p><b>确定要申请该题目吗？</b></p>
+                            <div style="text-align: right; margin: 0">
+                                <el-button size="mini" type="text" @click="visible = false">取消</el-button>
+                                <el-button type="primary" size="mini" @click="doApplication(scope.row)">确定</el-button>
+                            </div>
+                            <el-button size="mini" type="primary" slot="reference" :disabled=lpDelete(scope.row.isselect)>申请</el-button>
+                        </el-popover>
                     </template>
                 </el-table-column>
                 <el-table-column label="查看申请" width="110" align="center">
@@ -59,7 +64,7 @@
                 <el-table-column label="取消申请" width="110" align="center">
                     <template slot-scope="scope">
                         <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" :disabled="lpApplication(scope.row.isselect)">
-                            查看申请
+                            取消申请
                         </el-button>
                     </template>
                 </el-table-column>
@@ -73,11 +78,16 @@
             </el-table>
         </div>
 
-        <div>
+        <!--<div>
             {{ info }}
         </div>
         <div>
             {{ returnObject }}
+        </div>-->
+        <div>
+            <h1>
+                {{ temp }}
+            </h1>
         </div>
 
     </div>
@@ -92,6 +102,7 @@
                 teachernumber: this.$route.params.teachernumber,
                 info: null,
                 returnObject: null,
+                temp: null,
             }
         },
         created() {
@@ -115,6 +126,37 @@
             )
         },
         methods: {
+            doApplication(row) {
+                let that = this;
+                this.$axios.post(
+                    '/selecttitle/add', {
+                        "applicationdata": "",
+                        "id": 0,
+                        "pass": 0,
+                        "passdata": "",
+                        "studentid": that.$GLOBAL.userNumber,
+                        "titleid": row.id
+                    },
+                ).then(
+                    async function (response) {
+                        console.log(response);
+                        console.log(response.data);
+                        that.temp = response.data;
+                        if (that.temp.returnKey === true) {
+                            that.$notify({
+                                title: '成功',
+                                message: that.temp.why,
+                                type: 'success'
+                            });
+                        } else {
+                            that.$notify.error({
+                                title: '错误',
+                                message: that.temp.why,
+                            });
+                        }
+                    }
+                )
+            },
             handleEdit(index, row) {
                 console.log(index, row);
             },
