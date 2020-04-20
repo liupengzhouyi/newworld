@@ -27,7 +27,7 @@
                 </el-table-column>
                 <el-table-column prop="applicationdata" label="申请日期" width="180">
                     <template slot-scope="scope">
-                        {{ scope.row.project.applicationdata }}
+                        {{ scope.row.selecttitle.applicationdata }}
                     </template>
                 </el-table-column>
                 <el-table-column label="是否通过" width="100">
@@ -61,7 +61,7 @@
         created() {
             let that = this;
             that.$axios.post(
-                '/OtherContrller/studentSelectApplicationTitleInformationByTitle', {
+                '/OtherContrller/selectApplicationTitleInformationByTitle', {
                     "applicationdata": "",
                     "id": 0,
                     "pass": 0,

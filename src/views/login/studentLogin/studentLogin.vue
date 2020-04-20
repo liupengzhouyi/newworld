@@ -112,7 +112,7 @@
                 this.$router.push({path:'/SaySome',})
             },
             goBack() {
-                this.$router.push({path:'/SelectRegister',})
+                this.$router.push({path:'/SelectLogin',})
             },
         }
     }

@@ -53,7 +53,7 @@
                 </el-table-column>
                 <el-table-column label="查看申请" width="110" align="center">
                     <template slot-scope="scope">
-                        <el-button size="mini" type="primary" @click="handleDelete(scope.$index, scope.row)" :disabled="lpApplication(scope.row.isselect)">
+                        <el-button size="mini" type="primary" @click="showApplicationInformation(scope.row)" :disabled="lpApplication(scope.row.isselect)">
                             查看申请
                         </el-button>
                     </template>
@@ -151,7 +151,7 @@
                 if (key == 0) {
                     return false;
                 } else {
-                    return true;
+                    return false;
                 }
             },
             lpReselect(key) {
@@ -174,6 +174,17 @@
                         name: 'DeleteTitle',
                         params: {
                             id: row.id,
+                        }
+                    }
+                )
+            },
+            showApplicationInformation(row) {
+                this.$router.push(
+                    {
+                        name: 'TitleApplicationInformation',
+                        params: {
+                            id: row.id,
+                            isSelect: row.isselect,
                         }
                     }
                 )

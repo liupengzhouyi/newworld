@@ -23,7 +23,7 @@ import SelectCollegeTeacher from "../views/student/selectTeacher/selectCollegeTe
 import TeacherTitle from "../views/student/title/teacherTitle/teacherTitle";
 import DeleteTitle from "../views/teacher/title/deleteTitle";
 import TitleApplication from "../views/student/title/titleApplication/titleApplication";
-
+import TitleApplicationInformation from "../views/teacher/title/titleApplicationInformation/titleApplicationInformation";
 
 
 
@@ -161,7 +161,11 @@ Vue.use(VueRouter)
       name: 'TitleApplication',
       component: TitleApplication
     },
-
+    {
+      path: '/TitleApplicationInformation',
+      name: 'TitleApplicationInformation',
+      component: TitleApplicationInformation,
+    },
 
 
 
