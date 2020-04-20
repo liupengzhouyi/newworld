@@ -44,14 +44,21 @@
                 </el-table-column>
                 <el-table-column label="申请" width="110" align="center">
                     <template slot-scope="scope">
-                        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" :disabled=lpDelete(scope.row.isselect)>
-                            删除
+                        <el-button size="mini" type="primary" @click="handleDelete(scope.$index, scope.row)" :disabled=lpDelete(scope.row.isselect)>
+                            申请
+                        </el-button>
+                    </template>
+                </el-table-column>
+                <el-table-column label="查看申请" width="110" align="center">
+                    <template slot-scope="scope">
+                        <el-button size="mini" type="primary" @click="toPages(scope.row)" :disabled=lpDelete(scope.row.isselect)>
+                            查看申请
                         </el-button>
                     </template>
                 </el-table-column>
                 <el-table-column label="取消申请" width="110" align="center">
                     <template slot-scope="scope">
-                        <el-button size="mini" type="primary" @click="handleDelete(scope.$index, scope.row)" :disabled="lpApplication(scope.row.isselect)">
+                        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" :disabled="lpApplication(scope.row.isselect)">
                             查看申请
                         </el-button>
                     </template>
@@ -60,13 +67,6 @@
                     <template slot-scope="scope">
                         <el-button size="mini" type="warning" @click="handleDelete(scope.$index, scope.row)" :disabled="lpReselect(scope.row.isselect)">
                             重新选题
-                        </el-button>
-                    </template>
-                </el-table-column>
-                <el-table-column label="查看详情" width="110">
-                    <template slot-scope="scope">
-                        <el-button size="mini" type="info" @click="handleDelete(scope.$index, scope.row)" :disabled="lpInfo(scope.row.isselect)">
-                            完成情况
                         </el-button>
                     </template>
                 </el-table-column>
@@ -165,6 +165,17 @@
                 } else {
                     this.$router.push({path:'/SelectProfessionTeacher',})
                 }
+            },
+            toPages(row) {
+                this.$router.push(
+                    {
+                        name: 'TitleApplication',
+                        params: {
+                            id: row.id,
+                            teachernumber: this.$route.params.teachernumber,
+                        }
+                    }
+                )
             },
         }
     }

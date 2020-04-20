@@ -22,6 +22,10 @@ import SelectProfessionTeacher from "../views/student/selectTeacher/selectProfes
 import SelectCollegeTeacher from "../views/student/selectTeacher/selectCollegeTeacher";
 import TeacherTitle from "../views/student/title/teacherTitle/teacherTitle";
 import DeleteTitle from "../views/teacher/title/deleteTitle";
+import TitleApplication from "../views/student/title/titleApplication/titleApplication";
+
+
+
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
@@ -152,6 +156,12 @@ Vue.use(VueRouter)
       name: 'DeleteTitle',
       component: DeleteTitle
     },
+    {
+      path: '/TitleApplication',
+      name: 'TitleApplication',
+      component: TitleApplication
+    },
+
 
 
 
