@@ -29,11 +29,14 @@
                 </el-input>
                 <div style="padding: 20px 0">
                     <el-row>
-                        <el-button type="warning" round>警告按钮</el-button>
-                        <el-button type="primary" round>主要按钮</el-button>
+                        <el-button type="warning" @click="reset" round>重置</el-button>
+                        <el-button type="primary" @click="addit" round>提交</el-button>
                     </el-row>
                 </div>
             </el-card>
+        </div>
+        <div>
+            {{ info }}
         </div>
 
     </div>
@@ -46,7 +49,9 @@
             return {
                 title: "添加系统公告",
                 text: '',
-                textarea: ''
+                textarea: '',
+                info: null,
+
             }
         },
         created () {
@@ -55,6 +60,44 @@
             goBack() {
                 this.$router.push({path:'/',})
             },
+            addit() {
+                if (!this.text) {
+                    this.$message.error('请输入标题');
+                    return;
+                }
+                if (!this.textarea) {
+                    this.$message.error('请输入内容');
+                    return;
+                }
+                if (this.text === '' || this.textarea === '') {
+                    alert('标题或内容不能为空');
+                } else {
+                    let that = this
+                    this.$axios.post(
+                        '/SystemInformation/add',
+                        {
+                            "authorid": that.$GLOBAL.userID,
+                            "id": 0,
+                            "lpcontent": that.textarea,
+                            "lpday": 0,
+                            "lpmonth": 0,
+                            "lpyear": 0,
+                            "title": that.text
+                        },
+                    ).then(
+                        async function (response) {
+                            console.log(response);
+                            console.log(response.data);
+                            that.info = response.data;
+                        }
+                    )
+                }
+            },
+            reset() {
+                let that = this;
+                that.test = "";
+                that.textarea = "";
+            }
         }
     }
 </script>
