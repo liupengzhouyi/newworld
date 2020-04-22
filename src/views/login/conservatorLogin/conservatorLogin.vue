@@ -88,8 +88,6 @@
                                 that.$GLOBAL.landing = 1
                                 that.$GLOBAL.userNumber = that.userName
                                 that.$GLOBAL.userType = 1
-                                that.$GLOBAL.imageurl = that.info.returnObject.imageurl
-                                that.$GLOBAL.userName = that.info.returnObject.name
                                 that.jump()
                             } else {
                                 that.$GLOBAL.landing = -1
@@ -109,7 +107,7 @@
                 )
             },
             jump(){
-                this.$router.push({path:'/SaySome',})
+                this.$router.push({path:'/',})
             },
             goBack() {
                 this.$router.push({path:'/SelectLogin',})

@@ -65,6 +65,23 @@
             </div>
           </el-card>
         </el-col>
+        <el-col :span="8">
+          <el-card class="box-card">
+            <div slot="header" class="clearfix">
+              <span>管理员</span>
+              <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+            </div>
+            <div>
+              <el-button @click="findConservator1()">添加系统公告</el-button>
+            </div>
+            <div>
+              <el-button @click="findTeacher2()">查看本系教师</el-button>
+            </div>
+            <div>
+              <el-button @click="studentGetApplication">查看我的申请</el-button>
+            </div>
+          </el-card>
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -113,6 +130,10 @@ export default {
     studentGetApplication() {
       this.$router.push({path:'/ApplicationInformation',})
     },
+    findConservator1() {
+      this.$router.push({path:'/AddSystemAD',})
+    },
+
 
   },
   components: {

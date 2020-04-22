@@ -25,7 +25,7 @@ import DeleteTitle from "../views/teacher/title/deleteTitle";
 import TitleApplication from "../views/student/title/titleApplication/titleApplication";
 import TitleApplicationInformation from "../views/teacher/title/titleApplicationInformation/titleApplicationInformation";
 import ApplicationInformation from "../views/student/title/ApplicationInformation/applicationInformation";
-
+import AddSystemAD from "../views/conservator/systemAD/addSystemAD";
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
@@ -171,7 +171,12 @@ Vue.use(VueRouter)
       name: 'ApplicationInformation',
       component: ApplicationInformation,
     },
-
+    {
+      path: '/AddSystemAD',
+      name: 'AddSystemAD',
+      component: AddSystemAD,
+    },
+      
 
 
 
