@@ -27,7 +27,7 @@ import TitleApplicationInformation from "../views/teacher/title/titleApplication
 import ApplicationInformation from "../views/student/title/ApplicationInformation/applicationInformation";
 import AddSystemAD from "../views/conservator/systemAD/addSystemAD";
 import SelectSysytemAD from "../views/conservator/systemAD/selectSysytemAD";
-
+import SystemADInformation from "../views/conservator/systemAD/systemADInformation";
 
 
 
@@ -185,6 +185,12 @@ Vue.use(VueRouter)
       name: 'SelectSysytemAD',
       component: SelectSysytemAD
     },
+    {
+      path: '/SystemADInformation',
+      name: 'SystemADInformation',
+      component: SystemADInformation
+    },
+
 
       
 
