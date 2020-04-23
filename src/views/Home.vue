@@ -72,10 +72,10 @@
               <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
             </div>
             <div>
-              <el-button @click="findConservator1()">添加系统公告</el-button>
+              <el-button @click="findConservator()">添加系统公告</el-button>
             </div>
             <div>
-              <el-button @click="findTeacher2()">查看本系教师</el-button>
+              <el-button @click="selectSystremAD">查看所有系统公告</el-button>
             </div>
             <div>
               <el-button @click="studentGetApplication">查看我的申请</el-button>
@@ -130,9 +130,12 @@ export default {
     studentGetApplication() {
       this.$router.push({path:'/ApplicationInformation',})
     },
-    findConservator1() {
+    findConservator() {
       this.$router.push({path:'/AddSystemAD',})
     },
+    selectSystremAD() {
+      this.$router.push({path:'/SelectSysytemAD',})
+    }
 
 
   },
