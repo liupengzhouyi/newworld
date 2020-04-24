@@ -28,7 +28,7 @@ import ApplicationInformation from "../views/student/title/ApplicationInformatio
 import AddSystemAD from "../views/conservator/systemAD/addSystemAD";
 import SelectSysytemAD from "../views/conservator/systemAD/selectSysytemAD";
 import SystemADInformation from "../views/conservator/systemAD/systemADInformation";
-
+import GetTruePaperFile from "../views/student/paperFile/getTruePaperFile";
 
 
 import SaySome from '../views/SaySome'
@@ -190,6 +190,12 @@ Vue.use(VueRouter)
       name: 'SystemADInformation',
       component: SystemADInformation
     },
+    {
+      path: '/GetTruePaperFile',
+      name: 'GetTruePaperFile',
+      component: GetTruePaperFile
+    },
+
 
 
       

@@ -63,6 +63,9 @@
             <div>
               <el-button @click="studentGetApplication">查看我的申请</el-button>
             </div>
+            <div>
+              <el-button @click="studentGetpaperFile()">查看论文文件</el-button>
+            </div>
           </el-card>
         </el-col>
         <el-col :span="8">
@@ -135,7 +138,11 @@ export default {
     },
     selectSystremAD() {
       this.$router.push({path:'/SelectSysytemAD',})
-    }
+    },
+    studentGetpaperFile() {
+      this.$router.push({path:'/GetTruePaperFile',})
+    },
+
 
 
   },

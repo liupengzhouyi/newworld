@@ -7,7 +7,7 @@
         <div style="padding: 20px 0"></div>
 
         <div class="lpMyWay">
-            <el-card class="box-card">
+            <el-card class="box-card" shadow="hover">
                 <div slot="header" class="clearfix">
                     <h2>
                         {{ returnobject.title }}
@@ -16,7 +16,6 @@
                         <p style="float: right; padding: 3px 0; color: #2154FA">{{ returnobject.lpyear}}/{{ returnobject.lpmonth}}/{{ returnobject.lpday}}</p>
                     </span>
                 </div>
-                <div style="padding: 10px 0"></div>
 
                 <div>
                     <p style="align-items: center">
@@ -98,7 +97,10 @@
         background-color:white;
         box-shadow:0 5px 20px #999;
         align-items: center;
-
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
 
     .clearfix:before,
@@ -112,5 +114,6 @@
 
     .box-card {
         width: 800px;
+        background-color: blanchedalmond;
     }
 </style>
