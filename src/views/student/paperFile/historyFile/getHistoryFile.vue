@@ -1,15 +1,13 @@
 <template>
-    <div class="getTruePaperFile">
+    <div class="getHistoryFile">
+
         <div class="myTop">
-            <el-page-header @back="goBack" content="查看论文文件"></el-page-header>
+            <el-page-header @back="goBack" content="论文文件历史记录"></el-page-header>
         </div>
         <div style="padding: 20px 0"></div>
 
         <div class="lpMyWay">
             <div style="padding: 20px 0"></div>
-            <el-main>
-                <el-button type="primary" size="medium" icon="el-icon-edit" circle></el-button>
-            </el-main>
             <div class="block">
                 <el-timeline style="width: 800px" reverse="false">
                     <el-timeline-item
@@ -19,6 +17,8 @@
                             type="success"
                             :timestamp="temp.upladdata"
                             placement="top"
+                            icon="el-icon-download"
+                            size="large"
                     >
                         <el-card>
                             <el-container>
@@ -36,14 +36,6 @@
                                                 <a :href="download(temp.fileurl)">
                                                     <el-button type="success" icon="el-icon-download" circle></el-button>
                                                 </a>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a>
-                                                    <el-button type="danger" icon="el-icon-refresh" circle></el-button>
-                                                </a>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a>
-                                                    <el-button type="warning" icon="el-icon-time" @click="history(temp.titleid, temp.name)" circle></el-button>
-                                                </a>
                                             </el-row>
                                         </el-main>
 
@@ -56,17 +48,12 @@
             </div>
         </div>
 
-
-
-        <!--<div>
-            {{ returnObject }}
-        </div>-->
     </div>
 </template>
 
 <script>
     export default {
-        name: "getTruePaperFile",
+        name: "getHistoryFile",
         data() {
             return {
                 title: "查看论文文件",
@@ -78,17 +65,17 @@
         created () {
             let that = this
             this.$axios.post(
-                '/projectfile/getAllByTiitleIdTrue',
+                '/projectfile/getAllByTitleIdAndNameFalse',
                 {
                     "approval": "",
                     "approvaldata": "",
                     "fileurl": "",
                     "id": 0,
                     "introduction": "",
-                    "name": "",
+                    "name": "开场白",
                     "studentnumber": "",
                     "teachernumber": "",
-                    "titleid": 21,
+                    "titleid": 22,
                     "upladdata": "",
                     "version": "",
                     "versionkey": 0
@@ -104,22 +91,12 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/GetTruePaperFile',})
             },
             download(path) {
                 return path
             },
-            history(titleId, name) {
-                this.$router.push(
-                    {
-                        name: 'GetHistoryFile',
-                        params: {
-                            titleId: titleId,
-                            name: name,
-                        }
-                    }
-                )
-            }
+
 
         }
     }
@@ -132,8 +109,7 @@
         background-color:white;
         box-shadow:0 5px 20px #999;
         align-items: center;
-        background-color: #5ab1aa;
-
+        background-color: #56793e;
     }
     .el-header, .el-footer {
         background-color: #B3C0D1;
@@ -144,7 +120,7 @@
 
     .el-aside {
         text-align: left;
-        height: 150px;
+        height: 140px;
     }
 
     .el-main {
