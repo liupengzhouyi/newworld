@@ -30,6 +30,10 @@ import SelectSysytemAD from "../views/conservator/systemAD/selectSysytemAD";
 import SystemADInformation from "../views/conservator/systemAD/systemADInformation";
 import GetTruePaperFile from "../views/student/paperFile/getTruePaperFile";
 import GetHistoryFile from "../views/student/paperFile/historyFile/getHistoryFile";
+import AddPaperFile from "../views/student/paperFile/addPaperFlie/addPaperFile";
+
+
+
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
@@ -200,6 +204,12 @@ Vue.use(VueRouter)
       name: 'GetHistoryFile',
       component: GetHistoryFile
     },
+    {
+      path: '/AddPaperFile',
+      name: 'AddPaperFile',
+      component: AddPaperFile
+    },
+
 
 
 

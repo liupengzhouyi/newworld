@@ -8,7 +8,7 @@
         <div class="lpMyWay">
             <div style="padding: 20px 0"></div>
             <el-main>
-                <el-button type="primary" size="medium" icon="el-icon-edit" circle></el-button>
+                <el-button type="primary" @click="add()" size="medium" icon="el-icon-edit" circle></el-button>
             </el-main>
             <div class="block">
                 <el-timeline style="width: 800px" reverse="false">
@@ -42,7 +42,7 @@
                                                 </a>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a>
-                                                    <el-button type="warning" icon="el-icon-time" @click="history(temp.titleid, temp.name)" circle></el-button>
+                                                    <el-button type="warning" icon="el-icon-time" @click="history(temp)" circle></el-button>
                                                 </a>
                                             </el-row>
                                         </el-main>
@@ -58,9 +58,9 @@
 
 
 
-        <!--<div>
+        <div>
             {{ returnObject }}
-        </div>-->
+        </div>
     </div>
 </template>
 
@@ -70,7 +70,7 @@
         data() {
             return {
                 title: "查看论文文件",
-                id: this.$route.params.titileid,
+                id: this.$route.params.titileId,
                 info: null,
                 returnObject: null,
             }
@@ -88,7 +88,7 @@
                     "name": "",
                     "studentnumber": "",
                     "teachernumber": "",
-                    "titleid": 21,
+                    "titleid": 22,
                     "upladdata": "",
                     "version": "",
                     "versionkey": 0
@@ -109,13 +109,23 @@
             download(path) {
                 return path
             },
-            history(titleId, name) {
+            history(temp) {
                 this.$router.push(
                     {
                         name: 'GetHistoryFile',
                         params: {
-                            titleId: titleId,
-                            name: name,
+                            titleId: temp.titleid,
+                            name: temp.name,
+                        }
+                    }
+                )
+            },
+            add() {
+                this.$router.push(
+                    {
+                        name: 'AddPaperFile',
+                        params: {
+
                         }
                     }
                 )

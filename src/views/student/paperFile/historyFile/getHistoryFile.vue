@@ -6,6 +6,11 @@
         </div>
         <div style="padding: 20px 0"></div>
 
+        <!--<div>
+            {{ titleId }}
+            {{ name }}
+        </div>-->
+
         <div class="lpMyWay">
             <div style="padding: 20px 0"></div>
             <div class="block">
@@ -48,6 +53,10 @@
             </div>
         </div>
 
+        <!--<div>
+            {{ returnObject }}
+        </div>-->
+
     </div>
 </template>
 
@@ -57,7 +66,8 @@
         data() {
             return {
                 title: "查看论文文件",
-                id: this.$route.params.titileid,
+                titleId: this.$route.params.titleId,
+                name: this.$route.params.name,
                 info: null,
                 returnObject: null,
             }
@@ -72,10 +82,10 @@
                     "fileurl": "",
                     "id": 0,
                     "introduction": "",
-                    "name": "开场白",
+                    "name": that.name,
                     "studentnumber": "",
                     "teachernumber": "",
-                    "titleid": 22,
+                    "titleid": that.titleId,
                     "upladdata": "",
                     "version": "",
                     "versionkey": 0
@@ -96,8 +106,6 @@
             download(path) {
                 return path
             },
-
-
         }
     }
 </script>
