@@ -31,7 +31,7 @@ import SystemADInformation from "../views/conservator/systemAD/systemADInformati
 import GetTruePaperFile from "../views/student/paperFile/getTruePaperFile";
 import GetHistoryFile from "../views/student/paperFile/historyFile/getHistoryFile";
 import AddPaperFile from "../views/student/paperFile/addPaperFlie/addPaperFile";
-
+import UpdatePaperFile from "../views/student/paperFile/updatePaperFile/updatePaperFile";
 
 
 
@@ -209,6 +209,12 @@ Vue.use(VueRouter)
       name: 'AddPaperFile',
       component: AddPaperFile
     },
+    {
+      path: '/UpdatePaperFile',
+      name: 'UpdatePaperFile',
+      component: UpdatePaperFile
+    },
+
 
 
 

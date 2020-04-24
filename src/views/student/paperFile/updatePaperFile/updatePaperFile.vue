@@ -1,7 +1,7 @@
 <template>
-    <div class="addPaperFile">
+    <div class="updatePaperFile">
         <div class="myTop">
-            <el-page-header @back="goBack" content="添加论文文件"></el-page-header>
+            <el-page-header @back="goBack" content="更新论文文件"></el-page-header>
         </div>
         <div style="padding: 20px 0"></div>
 
@@ -14,7 +14,10 @@
                     <el-form status-icon label-width="80px" class="demo-ruleForm">
 
                         <el-form-item label="环节">
-                            <el-input v-model="paperFileName" autocomplete="off"></el-input>
+                            <div align="left">
+                                <b style="color: mediumseagreen"> {{ name }} </b>
+                            </div>
+
                         </el-form-item>
 
                         <el-form-item label="概述">
@@ -62,7 +65,7 @@
                 </div>
             </el-card>
         </div>
-        <div>
+        <!--<div>
             <b>
                 {{ temp }}
             </b>
@@ -78,21 +81,22 @@
             <p style="color: #409EFF">
                 {{ returnObject }}
             </p>
-        </div>
+        </div>-->
     </div>
 </template>
 
 <script>
     export default {
-        name: "addPaperFile",
+        name: "updatePaperFile",
         data() {
             return {
-                title: "添加论文文件",
+                title: "更新论文文件",
+                titleId: this.$route.params.titleId,
+                name: this.$route.params.name,
                 fileinfo: null,
                 info: null,
                 filReturnObject: null,
                 returnObject: null,
-                paperFileName: "",
                 paperFileIntroduction: "",
                 fileUrl: "",
                 fileList: [],
@@ -105,17 +109,13 @@
         },
         methods: {
             submitForm() {
-                if (!this.paperFileName) {
-                    this.$message.error('请输入名称');
-                    return;
-                }
                 if (!this.fileUrl) {
                     this.$message.error("文件未上传");
                     return;
                 }
                 let that = this
                 this.$axios.post(
-                    '/projectfile/add',
+                    '/projectfile/update',
                     {
                         "approval": "",
                         "approvaldata": "",
@@ -123,7 +123,7 @@
                         "id": 0,
                         "introduction": that.paperFileIntroduction,
                         "versionkey": 0,
-                        "name": that.paperFileName,
+                        "name": that.name,
                         "studentnumber": that.$GLOBAL.userNumber,
                         "teachernumber": "",
                         "titleid": 22,
@@ -186,7 +186,6 @@
             }
 
         }
-
     }
 </script>
 

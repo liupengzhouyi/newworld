@@ -38,7 +38,7 @@
                                                 </a>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a>
-                                                    <el-button type="danger" icon="el-icon-refresh" circle></el-button>
+                                                    <el-button type="danger" icon="el-icon-refresh" @click="updatePaperFile(temp)" circle></el-button>
                                                 </a>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a>
@@ -126,6 +126,17 @@
                         name: 'AddPaperFile',
                         params: {
 
+                        }
+                    }
+                )
+            },
+            updatePaperFile(temp) {
+                this.$router.push(
+                    {
+                        name: 'UpdatePaperFile',
+                        params: {
+                            titleId: temp.titleid,
+                            name: temp.name,
                         }
                     }
                 )
