@@ -55,7 +55,7 @@
                                                         </h3>
                                                     </div>
                                                     <div>
-                                                        <p style="size: 20px">
+                                                        <p style="size: 40px">
                                                             {{ approval }}
                                                         </p>
                                                     </div>
@@ -77,11 +77,9 @@
             </div>
         </div>
 
-
-
-        <div>
+        <!--<div>
             {{ returnObject }}
-        </div>
+        </div>-->
     </div>
 </template>
 
@@ -99,7 +97,7 @@
                 outerVisible: false,
                 //innerVisible: false,
                 tempname: null,
-                approval: null,
+                approval: "导师暂时未指导",
 
             }
         },
@@ -144,6 +142,7 @@
                         params: {
                             titleId: temp.titleid,
                             name: temp.name,
+                            id: this.id,
                         }
                     }
                 )
@@ -153,7 +152,7 @@
                     {
                         name: 'AddPaperFile',
                         params: {
-
+                            id: this.id,
                         }
                     }
                 )
@@ -165,6 +164,7 @@
                         params: {
                             titleId: temp.titleid,
                             name: temp.name,
+                            id: this.id,
                         }
                     }
                 )
@@ -198,7 +198,14 @@
                     }
                 );
                 that.outerVisible = true
-            }
+            },
+            /*setApproval(text) {
+                if (text.toString().length === 0) {
+                    return "导师暂时未指导"
+                } else {
+                    return text.toString();
+                }
+            },*/
         }
     }
 </script>

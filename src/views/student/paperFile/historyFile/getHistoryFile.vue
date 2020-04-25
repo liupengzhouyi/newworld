@@ -72,7 +72,9 @@
                 </el-timeline>
             </div>
         </div>
-
+        <!--<div>
+            {{ returnId }}
+        </div>-->
         <!--<div>
             {{ returnObject }}
         </div>-->
@@ -85,6 +87,7 @@
         name: "getHistoryFile",
         data() {
             return {
+                returnId: this.$route.params.id,
                 title: "查看论文文件",
                 titleId: this.$route.params.titleId,
                 name: this.$route.params.name,
@@ -95,7 +98,8 @@
                 outerVisible: false,
                 //innerVisible: false,
                 tempname: null,
-                approval: null,
+                approval: "导师暂时未指导",
+
             }
         },
         created () {
@@ -127,7 +131,14 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/GetTruePaperFile',})
+                this.$router.push(
+                    {
+                        name: 'GetTruePaperFile',
+                        params: {
+                            titleId: this.returnId,
+                        }
+                    }
+                )
             },
             download(path) {
                 return path
@@ -162,7 +173,13 @@
                 );
                 that.outerVisible = true
             },
-
+            /*setApproval(text) {
+                if (text.toString().length === 0) {
+                    return "导师暂时未指导"
+                } else {
+                    return text.toString();
+                }
+            },*/
         }
     }
 </script>
@@ -204,5 +221,8 @@
 
     .el-container:nth-child(7) .el-aside {
         line-height: 320px;
+    }
+    .myLeft {
+        text-align: left;
     }
 </style>
