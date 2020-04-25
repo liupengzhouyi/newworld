@@ -1,9 +1,14 @@
 <template>
-    <div class="teacherGetTruePaperInformation">
+    <div class="teacherGetHistoryFile">
         <div class="myTop">
-            <el-page-header @back="goBack" content="查看论文文件"></el-page-header>
+            <el-page-header @back="goBack" content="论文文件历史记录"></el-page-header>
         </div>
         <div style="padding: 20px 0"></div>
+
+        <!--<div>
+            {{ titleId }}
+            {{ name }}
+        </div>-->
 
         <div class="lpMyWay">
             <div style="padding: 20px 0"></div>
@@ -16,6 +21,8 @@
                             type="success"
                             :timestamp="temp.upladdata"
                             placement="top"
+                            icon="el-icon-download"
+                            size="large"
                     >
                         <el-card>
                             <el-container>
@@ -33,10 +40,6 @@
                                                 <a :href="download(temp.fileurl)">
                                                     <el-button type="success" icon="el-icon-download" circle></el-button>
                                                 </a>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a>
-                                                    <el-button type="warning" icon="el-icon-time" @click="history(temp)" circle></el-button>
-                                                </a>
                                             </el-row>
                                         </el-main>
 
@@ -48,19 +51,17 @@
                 </el-timeline>
             </div>
         </div>
-        <div>
-            {{ returnObject }}
-        </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "teacherGetTruePaperInformation",
+        name: "teacherGetHistoryFile",
         data() {
             return {
                 title: "查看论文文件",
-                id: this.$route.params.titleId,
+                titleId: this.$route.params.titleId,
+                name: this.$route.params.name,
                 info: null,
                 returnObject: null,
             }
@@ -68,17 +69,17 @@
         created () {
             let that = this
             this.$axios.post(
-                '/projectfile/getAllByTiitleIdTrue',
+                '/projectfile/getAllByTitleIdAndNameFalse',
                 {
                     "approval": "",
                     "approvaldata": "",
                     "fileurl": "",
                     "id": 0,
                     "introduction": "",
-                    "name": "",
+                    "name": that.name,
                     "studentnumber": "",
                     "teachernumber": "",
-                    "titleid": that.id,
+                    "titleid": that.titleId,
                     "upladdata": "",
                     "version": "",
                     "versionkey": 0
@@ -94,45 +95,13 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/GetTruePaperFile',})
             },
             download(path) {
                 return path
             },
-            history(temp) {
-                this.$router.push(
-                    {
-                        name: 'TeacherGetHistoryFile',
-                        params: {
-                            titleId: temp.titleid,
-                            name: temp.name,
-                        }
-                    }
-                )
-            },
-            add() {
-                this.$router.push(
-                    {
-                        name: 'AddPaperFile',
-                        params: {
-
-                        }
-                    }
-                )
-            },
-            updatePaperFile(temp) {
-                this.$router.push(
-                    {
-                        name: 'UpdatePaperFile',
-                        params: {
-                            titleId: temp.titleid,
-                            name: temp.name,
-                        }
-                    }
-                )
-            }
-
         }
+
     }
 </script>
 
@@ -143,8 +112,7 @@
         background-color:white;
         box-shadow:0 5px 20px #999;
         align-items: center;
-        background-color: #5ab1aa;
-
+        background-color: #56793e;
     }
     .el-header, .el-footer {
         background-color: #B3C0D1;
@@ -155,7 +123,7 @@
 
     .el-aside {
         text-align: left;
-        height: 150px;
+        height: 140px;
     }
 
     .el-main {
