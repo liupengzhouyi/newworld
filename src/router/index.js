@@ -36,7 +36,7 @@ import StudentInformation from '../views/student/information/studentInformation'
 import StudentInformationAir from "../views/student/information/studentInformationAir";
 import TeacherGetTruePaperInformation from "../views/teacher/paperFile/teacherGetTruePaperInformation";
 import TeacherGetHistoryFile from "../views/teacher/paperFile/historyFile/teacherGetHistoryFile";
-
+import TeacherEditPaperFile from "../views/teacher/paperFile/edit/teacherEditPaperFile";
 
 
 
@@ -239,6 +239,12 @@ Vue.use(VueRouter)
       name: 'TeacherGetHistoryFile',
       component: TeacherGetHistoryFile,
     },
+    {
+      path: '/TeacherEditPaperFile',
+      name: 'TeacherEditPaperFile',
+      component: TeacherEditPaperFile
+    },
+
 
 
 

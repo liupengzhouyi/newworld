@@ -37,6 +37,10 @@
                                                 <a>
                                                     <el-button type="warning" icon="el-icon-time" @click="history(temp)" circle></el-button>
                                                 </a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a>
+                                                    <el-button type="primary" icon="el-icon-edit" @click="editPaperFile(temp)" circle></el-button>
+                                                </a>
                                             </el-row>
                                         </el-main>
 
@@ -48,9 +52,14 @@
                 </el-timeline>
             </div>
         </div>
+        <!--<div>
+            <h1>
+                {{ id }}
+            </h1>
+        </div>
         <div>
             {{ returnObject }}
-        </div>
+        </div>-->
     </div>
 </template>
 
@@ -104,18 +113,8 @@
                     {
                         name: 'TeacherGetHistoryFile',
                         params: {
-                            titleId: temp.titleid,
+                            titleId: temp.id,
                             name: temp.name,
-                        }
-                    }
-                )
-            },
-            add() {
-                this.$router.push(
-                    {
-                        name: 'AddPaperFile',
-                        params: {
-
                         }
                     }
                 )
@@ -130,6 +129,17 @@
                         }
                     }
                 )
+            },
+            editPaperFile(temp) {
+                this.$router.push(
+                    {
+                        name: 'TeacherEditPaperFile',
+                        params: {
+                            paperFileId: temp.id,
+                            id: this.id,
+                        }
+                    }
+                )
             }
 
         }
@@ -140,7 +150,6 @@
     .lpMyWay {
         width: 900px;
         margin: 0 auto;
-        background-color:white;
         box-shadow:0 5px 20px #999;
         align-items: center;
         background-color: #5ab1aa;

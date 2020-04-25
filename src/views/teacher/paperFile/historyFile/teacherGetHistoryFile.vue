@@ -109,7 +109,6 @@
     .lpMyWay {
         width: 900px;
         margin: 0 auto;
-        background-color:white;
         box-shadow:0 5px 20px #999;
         align-items: center;
         background-color: #56793e;
