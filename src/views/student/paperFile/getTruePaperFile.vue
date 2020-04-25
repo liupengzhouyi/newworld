@@ -44,6 +44,39 @@
                                                 <a>
                                                     <el-button type="warning" icon="el-icon-time" @click="history(temp)" circle></el-button>
                                                 </a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a></a>
+                                                <el-button type="info" icon="el-icon-info" @click="getApproval(temp)" circle></el-button>
+
+                                                <el-dialog :title="tempname" :visible.sync="outerVisible">
+                                                    <el-dialog width="30%" :title="tempname" :visible.sync="innerVisible" append-to-body>
+                                                        <div align="left">
+                                                            <h5>
+                                                                导师指导意见：
+                                                            </h5>
+                                                        </div>
+                                                        <div>
+                                                            <p>
+                                                                {{ approval }}
+                                                            </p>
+                                                        </div>
+                                                    </el-dialog>
+                                                    <div align="left">
+                                                        <h5>s
+                                                            导师指导意见：
+                                                        </h5>
+                                                    </div>
+                                                    <div>
+                                                        <p>
+                                                            {{ approval }}
+                                                        </p>
+                                                    </div>
+                                                    <div slot="footer" class="dialog-footer">
+                                                        <el-button @click="outerVisible = false">取消</el-button>
+                                                        <el-button type="primary" @click="innerVisible = true">打开</el-button>
+                                                    </div>
+                                                </el-dialog>
+
                                             </el-row>
                                         </el-main>
 
@@ -73,6 +106,14 @@
                 id: this.$route.params.titleId,
                 info: null,
                 returnObject: null,
+                info2: null,
+                returnObject2: null,
+                outerVisible: false,
+                innerVisible: false,
+
+                tempname: null,
+                approval: null,
+
             }
         },
         created () {
@@ -140,8 +181,37 @@
                         }
                     }
                 )
+            },
+            getApproval(temp) {
+                let that = this
+                this.$axios.post(
+                    '/projectfile/selectByID',
+                    {
+                        "approval": "",
+                        "approvaldata": "",
+                        "fileurl": "",
+                        "id": temp.id,
+                        "introduction": "",
+                        "name": "",
+                        "studentnumber": "",
+                        "teachernumber": "",
+                        "titleid": 0,
+                        "upladdata": "",
+                        "version": "",
+                        "versionkey": 0
+                    }
+                ).then(
+                    async function (response) {
+                        console.log(response);
+                        console.log(response.data);
+                        that.info2 = response.data;
+                        that.returnObject2 = that.info2.returnObject;
+                        that.tempname = that.returnObject2.name;
+                        that.approval = that.returnObject2.approval;
+                    }
+                );
+                that.outerVisible = true
             }
-
         }
     }
 </script>

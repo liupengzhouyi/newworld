@@ -41,6 +41,10 @@
                                                 <a :href="download(temp.fileurl)">
                                                     <el-button type="success" icon="el-icon-download" circle></el-button>
                                                 </a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a>
+                                                    <el-button type="info" icon="el-icon-info" circle></el-button>
+                                                </a>
                                             </el-row>
                                         </el-main>
 
