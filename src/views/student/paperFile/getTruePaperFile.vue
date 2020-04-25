@@ -49,31 +49,19 @@
                                                 <el-button type="info" icon="el-icon-info" @click="getApproval(temp)" circle></el-button>
 
                                                 <el-dialog :title="tempname" :visible.sync="outerVisible">
-                                                    <el-dialog width="30%" :title="tempname" :visible.sync="innerVisible" append-to-body>
-                                                        <div align="left">
-                                                            <h5>
-                                                                导师指导意见：
-                                                            </h5>
-                                                        </div>
-                                                        <div>
-                                                            <p>
-                                                                {{ approval }}
-                                                            </p>
-                                                        </div>
-                                                    </el-dialog>
-                                                    <div align="left">
-                                                        <h5>s
+                                                    <div class="myLeft">
+                                                        <h3>
                                                             导师指导意见：
-                                                        </h5>
+                                                        </h3>
                                                     </div>
                                                     <div>
-                                                        <p>
+                                                        <p style="size: 20px">
                                                             {{ approval }}
                                                         </p>
                                                     </div>
                                                     <div slot="footer" class="dialog-footer">
-                                                        <el-button @click="outerVisible = false">取消</el-button>
-                                                        <el-button type="primary" @click="innerVisible = true">打开</el-button>
+                                                        <el-button type="primary" @click="outerVisible = false">确定</el-button>
+                                                        <!--<el-button type="primary" @click="innerVisible = true">打开</el-button>-->
                                                     </div>
                                                 </el-dialog>
 
@@ -109,8 +97,7 @@
                 info2: null,
                 returnObject2: null,
                 outerVisible: false,
-                innerVisible: false,
-
+                //innerVisible: false,
                 tempname: null,
                 approval: null,
 
@@ -254,5 +241,8 @@
 
     .el-container:nth-child(7) .el-aside {
         line-height: 320px;
+    }
+    .myLeft {
+        text-align: left;
     }
 </style>

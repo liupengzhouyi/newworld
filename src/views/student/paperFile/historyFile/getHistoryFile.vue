@@ -42,9 +42,25 @@
                                                     <el-button type="success" icon="el-icon-download" circle></el-button>
                                                 </a>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a>
-                                                    <el-button type="info" icon="el-icon-info" circle></el-button>
-                                                </a>
+                                                <a></a>
+                                                <el-button type="info" icon="el-icon-info" @click="getApproval(temp)" circle></el-button>
+
+                                                <el-dialog :title="tempname" :visible.sync="outerVisible">
+                                                    <div class="myLeft">
+                                                        <h3>
+                                                            导师指导意见：
+                                                        </h3>
+                                                    </div>
+                                                    <div>
+                                                        <p style="size: 20px">
+                                                            {{ approval }}
+                                                        </p>
+                                                    </div>
+                                                    <div slot="footer" class="dialog-footer">
+                                                        <el-button type="primary" @click="outerVisible = false">确定</el-button>
+                                                        <!--<el-button type="primary" @click="innerVisible = true">打开</el-button>-->
+                                                    </div>
+                                                </el-dialog>
                                             </el-row>
                                         </el-main>
 
@@ -74,6 +90,12 @@
                 name: this.$route.params.name,
                 info: null,
                 returnObject: null,
+                info2: null,
+                returnObject2: null,
+                outerVisible: false,
+                //innerVisible: false,
+                tempname: null,
+                approval: null,
             }
         },
         created () {
@@ -110,6 +132,37 @@
             download(path) {
                 return path
             },
+            getApproval(temp) {
+                let that = this
+                this.$axios.post(
+                    '/projectfile/selectByID',
+                    {
+                        "approval": "",
+                        "approvaldata": "",
+                        "fileurl": "",
+                        "id": temp.id,
+                        "introduction": "",
+                        "name": "",
+                        "studentnumber": "",
+                        "teachernumber": "",
+                        "titleid": 0,
+                        "upladdata": "",
+                        "version": "",
+                        "versionkey": 0
+                    }
+                ).then(
+                    async function (response) {
+                        console.log(response);
+                        console.log(response.data);
+                        that.info2 = response.data;
+                        that.returnObject2 = that.info2.returnObject;
+                        that.tempname = that.returnObject2.name;
+                        that.approval = that.returnObject2.approval;
+                    }
+                );
+                that.outerVisible = true
+            },
+
         }
     }
 </script>
