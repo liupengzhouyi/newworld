@@ -33,7 +33,7 @@ import GetHistoryFile from "../views/student/paperFile/historyFile/getHistoryFil
 import AddPaperFile from "../views/student/paperFile/addPaperFlie/addPaperFile";
 import UpdatePaperFile from "../views/student/paperFile/updatePaperFile/updatePaperFile";
 import StudentInformation from '../views/student/information/studentInformation';
-
+import StudentInformationAir from "../views/student/information/studentInformationAir";
 
 
 import SaySome from '../views/SaySome'
@@ -220,6 +220,12 @@ Vue.use(VueRouter)
       name: 'StudentInformation',
       component: StudentInformation,
     },
+    {
+      path: '/StudentInformationAir',
+      name: 'StudentInformationAir',
+      component: StudentInformationAir
+    },
+
 
 
 

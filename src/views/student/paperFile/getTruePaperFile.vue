@@ -70,7 +70,7 @@
         data() {
             return {
                 title: "查看论文文件",
-                id: this.$route.params.titileId,
+                id: this.$route.params.titleId,
                 info: null,
                 returnObject: null,
             }
@@ -88,7 +88,7 @@
                     "name": "",
                     "studentnumber": "",
                     "teachernumber": "",
-                    "titleid": 22,
+                    "titleid": that.id,
                     "upladdata": "",
                     "version": "",
                     "versionkey": 0

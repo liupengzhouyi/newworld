@@ -1,5 +1,5 @@
 <template>
-    <div class="studentInformation">
+    <div class="studentInformationAir">
         <div class="myTop">
             <el-page-header @back="goBack" content="我的信息"></el-page-header>
         </div>
@@ -35,36 +35,20 @@
                 <el-collapse-item title="题目信息" name="2">
                     <div>
                         <el-card class="box-card">
-                            <el-row>
-                                <el-col :span="12">
-                                    <div>
-                                        <h3>
-                                            {{ returnObject.project.title }}
-                                        </h3>
-                                    </div>
-                                </el-col>
-                                <el-col :span="12">
-                                    <div>
-                                        <el-row>
-                                            <a :href="download(returnObject.project.fileurl)">
-                                                <el-button type="success" icon="el-icon-download" circle></el-button>
-                                            </a>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <el-button type="info" icon="el-icon-s-comment" circle @click="myPaperInformation(returnObject.project.id)"></el-button>
-                                        </el-row>
-                                    </div>
-                                </el-col>
-                            </el-row>
+                            <h1>
+                                没有！
+                            </h1>
                         </el-card>
                     </div>
                 </el-collapse-item>
                 <el-collapse-item title="选题通过信息" name="3" style="align-items: center">
                     <div>
                         <el-card class="box-card">
-                            <el-steps :active="2" align-center>
-                                <el-step title="申请日期" :description="returnObject.selecttitle.applicationdata"></el-step>
-                                <el-step title="通过日期" :description="returnObject.selecttitle.passdata"></el-step>
-                            </el-steps>
+                            <div>
+                                <h1>
+                                    没有！！
+                                </h1>
+                            </div>
                         </el-card>
                     </div>
                 </el-collapse-item>
@@ -72,44 +56,21 @@
                     <div>
                         <el-card class="box-card">
                             <div>
-                                <div class="demo-basic--circle">
-                                    <div class="block">
-                                        <el-avatar :size="100" :src="returnObject.teacher.imageurl" fit="fill"></el-avatar>
-                                    </div>
-                                </div>
+                                <h1>
+                                    没有！！!
+                                </h1>
                             </div>
-                            <hr>
-                            <table id="customers">
-                                <tr class="alt">
-                                    <th>导师姓名</th>
-                                    <td> {{ returnObject.teacher.name }} </td>
-                                </tr>
-                                <tr>
-                                    <th>导师编号</th>
-                                    <td> {{ returnObject.teacher.teachernumber }} </td>
-                                </tr>
-                                <tr class="alt">
-                                    <th>导师联系方式</th>
-                                    <td> {{ returnObject.teacher.phonenumber }} </td>
-                                </tr>
-                            </table>
                         </el-card>
                     </div>
                 </el-collapse-item>
             </el-collapse>
-        </div>
-        <!--<div>
-            {{ returnObject }}
-        </div>-->
-        <div>
-            {{ info }}
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "studentInformation",
+        name: "studentInformationAir",
         data() {
             return {
                 activeNames: ['1'],
@@ -137,17 +98,11 @@
                     console.log(response);
                     console.log(response.data);
                     that.info = response.data;
-                    if (that.info.returnKey != true) {
-                        that.goStudentInformationAir()
-                    }
                     that.returnObject = that.info.returnObject;
                 }
-            );
+            )
         },
         methods: {
-            goStudentInformationAir() {
-                this.$router.push({path: '/StudentInformationAir',})
-            },
             goBack() {
                 this.$router.push({path: '/',})
             },
@@ -168,7 +123,6 @@
                 console.log(val);
             },
         },
-
     }
 </script>
 
