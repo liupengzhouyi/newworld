@@ -32,6 +32,7 @@ import GetTruePaperFile from "../views/student/paperFile/getTruePaperFile";
 import GetHistoryFile from "../views/student/paperFile/historyFile/getHistoryFile";
 import AddPaperFile from "../views/student/paperFile/addPaperFlie/addPaperFile";
 import UpdatePaperFile from "../views/student/paperFile/updatePaperFile/updatePaperFile";
+import StudentInformation from '../views/student/information/studentInformation';
 
 
 
@@ -214,6 +215,12 @@ Vue.use(VueRouter)
       name: 'UpdatePaperFile',
       component: UpdatePaperFile
     },
+    {
+      path: '/StudentInformation',
+      name: 'StudentInformation',
+      component: StudentInformation,
+    },
+
 
 
 

@@ -66,6 +66,9 @@
             <div>
               <el-button @click="studentGetpaperFile()">查看论文文件</el-button>
             </div>
+            <div>
+              <el-button @click="studentInformation()">我的信息</el-button>
+            </div>
           </el-card>
         </el-col>
         <el-col :span="8">
@@ -142,6 +145,10 @@ export default {
     studentGetpaperFile() {
       this.$router.push({path:'/GetTruePaperFile',})
     },
+    studentInformation() {
+      this.$router.push({path:'/StudentInformation',})
+    },
+
 
 
 
