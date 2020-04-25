@@ -34,7 +34,7 @@ import AddPaperFile from "../views/student/paperFile/addPaperFlie/addPaperFile";
 import UpdatePaperFile from "../views/student/paperFile/updatePaperFile/updatePaperFile";
 import StudentInformation from '../views/student/information/studentInformation';
 import StudentInformationAir from "../views/student/information/studentInformationAir";
-
+import TeacherGetTruePaperInformation from "../views/teacher/paperFile/teacherGetTruePaperInformation";
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
@@ -225,6 +225,12 @@ Vue.use(VueRouter)
       name: 'StudentInformationAir',
       component: StudentInformationAir
     },
+    {
+      path: '/TeacherGetTruePaperInformation',
+      name: 'TeacherGetTruePaperInformation',
+      component: TeacherGetTruePaperInformation
+    },
+
 
 
 

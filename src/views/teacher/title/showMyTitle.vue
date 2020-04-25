@@ -72,7 +72,7 @@
                 </el-table-column>
                 <el-table-column label="完成情况" width="110">
                     <template slot-scope="scope">
-                        <el-button size="mini" type="info" @click="handleDelete(scope.$index, scope.row)" :disabled="lpInfo(scope.row.isselect)">
+                        <el-button size="mini" type="info" @click="getTruePaperInformation(scope.row)" :disabled="lpInfo(scope.row.isselect)">
                             完成情况
                         </el-button>
                     </template>
@@ -189,7 +189,16 @@
                     }
                 )
             },
-
+            getTruePaperInformation(row) {
+                this.$router.push(
+                    {
+                        name: 'TeacherGetTruePaperInformation',
+                        params: {
+                            titleId: row.id,
+                        }
+                    }
+                )
+            }
 
 
         },
