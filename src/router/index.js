@@ -37,7 +37,7 @@ import StudentInformationAir from "../views/student/information/studentInformati
 import TeacherGetTruePaperInformation from "../views/teacher/paperFile/teacherGetTruePaperInformation";
 import TeacherGetHistoryFile from "../views/teacher/paperFile/historyFile/teacherGetHistoryFile";
 import TeacherEditPaperFile from "../views/teacher/paperFile/edit/teacherEditPaperFile";
-
+import CreateGroup from "../views/teacher/group/create/createGroup";
 
 
 import SaySome from '../views/SaySome'
@@ -243,6 +243,11 @@ Vue.use(VueRouter)
       path: '/TeacherEditPaperFile',
       name: 'TeacherEditPaperFile',
       component: TeacherEditPaperFile
+    },
+    {
+      path: '/CreateGroup',
+      name: 'CreateGroup',
+      component: CreateGroup,
     },
 
 
