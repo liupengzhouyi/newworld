@@ -1,10 +1,10 @@
 <template>
-    <div class="myGroupsOfTeacher">
+    <div class="groupNumber">
         <div class="myTop">
             <el-page-header @back="goBack" content="聊天群组"></el-page-header>
         </div>
         <div style="padding: 20px 0"></div>
-        <el-drawer title="聊天群组" :visible.sync="drawer" :with-header="false">
+        <el-drawer title="聊天群组" :visible.sync="drawer" :with-header="false" direction="ltr">
             <div class="lpMyWay">
                 <el-card class="box-card">
                     <ul>
@@ -18,11 +18,9 @@
                                     </el-col>
                                     <el-col :span="10">
                                         <div class="grid-content bg-purple-light">
-                                            <el-button type="text" @click="selectGroupNumber(item)">
-                                                <h4 style="color: #c9c92d">
-                                                    {{ item.name }}
-                                                </h4>
-                                            </el-button>
+                                            <h4 style="color: ivory">
+                                                {{ item.name }}
+                                            </h4>
                                         </div>
                                     </el-col>
                                 </el-row>
@@ -43,12 +41,9 @@
 
 <script>
     export default {
-        name: "myGroupsOfTeacher",
+        name: "groupNumber",
         data() {
             return {
-                title: '创建聊天群组',
-                teacherid: 0,
-                imageUrl: "",
                 name: "",
                 info: null,
                 returnObject: null,
@@ -58,12 +53,11 @@
         created() {
             let that = this
             this.$axios.post(
-                '/group/getAllByTeacherId',
+                '/groupnumber/getAllNumber',
                 {
+                    "groupid": this.$route.params.groupId,
                     "id": 0,
-                    "imageurl": "",
-                    "name": "",
-                    "teacherid": that.$GLOBAL.userNumber
+                    "studentid": 0
                 },
             ).then(
                 async function (response) {
@@ -78,21 +72,7 @@
             goBack() {
                 this.$router.push({path:'/',})
             },
-            selectGroupNumber(item) {
-                this.$router.push(
-                    {
-                        name: 'GroupNumber',
-                        params: {
-                            groupId: item.id,
-                        }
-                    }
-                )
-            }
         }
-
-
-
-
     }
 </script>
 

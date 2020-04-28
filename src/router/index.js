@@ -39,9 +39,14 @@ import TeacherGetHistoryFile from "../views/teacher/paperFile/historyFile/teache
 import TeacherEditPaperFile from "../views/teacher/paperFile/edit/teacherEditPaperFile";
 import CreateGroup from "../views/teacher/group/create/createGroup";
 import MyGroupsOfTeacher from "../views/teacher/group/select/myGroupsOfTeacher";
+import GroupNumber from "../views/teacher/group/select/groupNumber";
+
+
+
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
+
 
 Vue.use(VueRouter)
 
@@ -254,6 +259,12 @@ Vue.use(VueRouter)
       name: 'MyGroupsOfTeacher',
       component: MyGroupsOfTeacher
     },
+    {
+      path: '/GroupNumber',
+      name: 'GroupNumber',
+      component: GroupNumber
+    },
+
 
 
 
