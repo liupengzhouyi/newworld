@@ -45,6 +45,9 @@
             <div>
               <el-button @click="uploadTitle()">上传教师题目</el-button>
             </div>
+            <div>
+              <el-button @click="createGroup()">创建群聊</el-button>
+            </div>
 
           </el-card>
         </el-col>
@@ -147,6 +150,9 @@ export default {
     },
     studentInformation() {
       this.$router.push({path:'/StudentInformation',})
+    },
+    createGroup() {
+      this.$router.push({path:'/CreateGroup',})
     },
 
 
