@@ -40,6 +40,10 @@ import TeacherEditPaperFile from "../views/teacher/paperFile/edit/teacherEditPap
 import CreateGroup from "../views/teacher/group/create/createGroup";
 import MyGroupsOfTeacher from "../views/teacher/group/select/myGroupsOfTeacher";
 import GroupNumber from "../views/teacher/group/select/groupNumber";
+import GroupInformation from "../views/teacher/group/select/groupInformation";
+import Chat from "../views/teacher/group/chat/chat";
+import ISay from "../components/chat/iSay";
+
 
 
 
@@ -264,6 +268,24 @@ Vue.use(VueRouter)
       name: 'GroupNumber',
       component: GroupNumber
     },
+    {
+      path: '/GroupInformation',
+      name: 'GroupInformation',
+      component: GroupInformation
+    },
+    {
+      path: '/Chat',
+      name: 'Chat',
+      component: Chat
+    },
+    {
+      path: '/ISay',
+      name: 'ISay',
+      component: ISay
+    },
+
+
+
 
 
 

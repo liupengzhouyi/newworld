@@ -49,7 +49,7 @@
               <el-button @click="createGroup()">创建群聊</el-button>
             </div>
             <div>
-              <el-button @click="selectMyGroupOfTeacher()">创建群聊</el-button>
+              <el-button @click="selectMyGroupOfTeacher()">聊天信息</el-button>
             </div>
 
 
@@ -159,7 +159,7 @@ export default {
       this.$router.push({path:'/CreateGroup',})
     },
     selectMyGroupOfTeacher() {
-      this.$router.push({path:'/MyGroupsOfTeacher',})
+      this.$router.push({path:'/GroupInformation',})
     },
 
 
