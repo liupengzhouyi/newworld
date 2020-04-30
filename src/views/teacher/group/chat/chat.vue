@@ -1,6 +1,11 @@
 <template>
     <div class="chat">
         <div class="lpMyWay">
+            <div>
+                <el-card class="box-card">
+                    <TestSay></TestSay>
+                </el-card>
+            </div>
             <el-form>
                 <el-form-item>
                     <el-input type="textarea" v-model="information"></el-input>
@@ -11,18 +16,20 @@
                 </el-form-item>
             </el-form>
         </div>
-        <div>
+        <!--<div>
             {{ info3 }}
         </div>
         <div>
             {{ authorId }}
-        </div>
+        </div>-->
     </div>
 </template>
 
 <script>
+    import TestSay from "../../../../components/chat/testSay";
     export default {
         name: "chat",
+        components: {TestSay},
         data() {
             return {
                 information: "",
@@ -75,9 +82,30 @@
 
 <style scoped>
     .lpMyWay {
-        width: 480px;
+        width: 600px;
         height: 100%;
         margin: 0 auto;
         align-items: center;
+    }
+    .text {
+        font-size: 14px;
+    }
+
+    .item {
+        margin-bottom: 18px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+    .clearfix:after {
+        clear: both
+    }
+
+    .box-card {
+        width: 600px;
+        height: 600px;
     }
 </style>

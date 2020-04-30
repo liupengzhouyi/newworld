@@ -43,7 +43,7 @@ import GroupNumber from "../views/teacher/group/select/groupNumber";
 import GroupInformation from "../views/teacher/group/select/groupInformation";
 import Chat from "../views/teacher/group/chat/chat";
 import ISay from "../components/chat/iSay";
-
+import TestSay from "../components/chat/testSay";
 
 
 
@@ -283,6 +283,12 @@ Vue.use(VueRouter)
       name: 'ISay',
       component: ISay
     },
+    {
+      path: '/TestSay',
+      name: 'TestSay',
+      component: TestSay
+    },
+
 
 
 

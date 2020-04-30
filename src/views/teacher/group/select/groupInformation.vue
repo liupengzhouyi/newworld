@@ -1,8 +1,20 @@
 <template>
     <div class="groupInformation">
-
         <div class="myTop">
             <el-page-header @back="goBack" content="聊天群组"></el-page-header>
+        </div>
+        <div class="lpMyWay">
+            <div>
+                <el-row>
+                    <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+                        点我打开群组
+                    </el-button>
+                    <el-button @click="drawer1 = true" type="primary" style="margin-left: 16px;">
+                        点我打开群组信息
+                    </el-button>
+                </el-row>
+            </div>
+            <Chat></Chat>
         </div>
         <div style="padding: 20px 0"></div>
         <el-drawer title="聊天群组" :visible.sync="drawer" :with-header="false">
@@ -34,11 +46,7 @@
                 </el-card>
             </div>
         </el-drawer>
-        <div>
-            <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
-                点我打开群组
-            </el-button>
-        </div>
+
         <el-drawer title="聊天群组" :visible.sync="drawer1" :with-header="false" direction="ltr">
             <div class="lpMyWay">
                 <el-card class="box-card">
@@ -66,18 +74,15 @@
                 </el-card>
             </div>
         </el-drawer>
-        <div>
-            <el-button @click="drawer1 = true" type="primary" style="margin-left: 16px;">
-                点我打开群组信息
-            </el-button>
-        </div>
 
     </div>
 </template>
 
 <script>
+    import Chat from "../chat/chat";
     export default {
         name: "groupInformation",
+        components: {Chat},
         data() {
             return {
                 title: '创建聊天群组',
