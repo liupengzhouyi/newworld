@@ -109,7 +109,7 @@
                 )
             },
             jump(){
-                this.$router.push({path:'/SaySome',})
+                this.$router.push({path:'/StudentMain',})
             },
             goBack() {
                 this.$router.push({path:'/SelectLogin',})

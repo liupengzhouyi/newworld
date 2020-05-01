@@ -58,7 +58,7 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/ConservatorMain',})
             },
             addit() {
                 if (!this.text) {

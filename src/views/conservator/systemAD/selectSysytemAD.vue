@@ -67,7 +67,8 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/',})
+                // this.$router.push({path:'/',})
+                this.$router.push({path:'/ConservatorMain',})
             },
             getInformation(id) {
                 this.$router.push(

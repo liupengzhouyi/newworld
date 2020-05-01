@@ -75,7 +75,15 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/SelectSysytemAD',})
+                if(this.$GLOBAL.userType == 1) {
+                    this.$router.push({path:'/ConservatorMain',})
+                } else if (this.$GLOBAL.userType == 2) {
+                    this.$router.push({path:'/TeacherMain',})
+                } else if (this.$GLOBAL.userType == 3) {
+                    this.$router.push({path:'/StudentMain',})
+                } else {
+                    this.$router.push({path:'/LiupengHead',})
+                }
             },
 
         }

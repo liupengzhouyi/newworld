@@ -1,5 +1,9 @@
 <template>
     <div class="conservatorMain">
+        <div v-show="showKey001">
+            <LiupengHead></LiupengHead>
+        </div>
+
         <div>
             <div class="header">
                 <h1>高校毕业设计管理体系</h1>
@@ -59,10 +63,11 @@
 
 <script>
     import SystemAD from "../../../components/systemAD/systemAD";
+    import LiupengHead from "../../../components/tools/liupengHead";
 
     export default {
         name: "conservatorMain",
-        components: {SystemAD, },
+        components: {LiupengHead, SystemAD, },
         data() {
             return {
                 info: null,
@@ -70,11 +75,13 @@
                 name: "",
                 phoneNumber: "",
                 imageurl: "",
+                showKey001: false,
 
             };
         },
         created() {
-            let that = this
+            let that = this;
+            that.isShow001();
             this.$axios.post(
                 '/Conservator/selectPhoneNumber',
                 {
@@ -136,6 +143,16 @@
             selectMyGroupOfTeacher() {
                 this.$router.push({path:'/GroupInformation',})
             },
+
+            isShow001() {
+                let that = this
+                if (that.$GLOBAL.landing === 1) {
+                    that.showKey001 = false;
+                } else {
+                    that.showKey001 = true;
+                }
+            },
+
         },
 
 

@@ -108,7 +108,7 @@
                 )
             },
             jump(){
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/ConservatorMain',})
             },
             goBack() {
                 this.$router.push({path:'/SelectLogin',})

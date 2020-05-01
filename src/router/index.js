@@ -49,13 +49,14 @@ import StudentMain from "../views/student/myMainPage/studentMain";
 import ConservatorMain from "../views/conservator/myMainPage/conservatorMain";
 
 import SystemAD from "../components/systemAD/systemAD";
-
+import LiupengHead from "../components/tools/liupengHead";
 
 
 
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
+
 
 
 Vue.use(VueRouter)
@@ -352,6 +353,13 @@ Vue.use(VueRouter)
       name: 'SystemAD',
       component: SystemAD
     },
+    {
+      path: '/LiupengHead',
+      name: 'LiupengHead',
+      component: LiupengHead
+    },
+
+
 
 
 
