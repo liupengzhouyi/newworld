@@ -1,9 +1,7 @@
 <template>
     <div class="showMyTitle">
-        <div>
-            <h2>
-                {{ thisTitle }}
-            </h2>
+        <div class="myTop">
+            <el-page-header @back="goBack" content="我的题目列表"></el-page-header>
         </div>
         <div class="lpMyWay">
             <el-table
@@ -100,6 +98,7 @@
                 thisTitle: "我的毕业设计选题",
                 info: null,
                 returnObject: null,
+                isRouterAlive: true,
 
             }
         },
@@ -124,6 +123,14 @@
             )
         },
         methods: {
+            reload() {
+                this.isRouterAlive = false
+                this.$nextTick(() => (this.isRouterAlive = true))
+            },
+            goBack() {
+                // this.$router.push({path:'/',})
+                this.$router.push({path:'/TeacherMain',})
+            },
             handleEdit(index, row) {
                 console.log(index, row);
             },

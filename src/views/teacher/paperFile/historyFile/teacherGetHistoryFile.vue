@@ -5,10 +5,10 @@
         </div>
         <div style="padding: 20px 0"></div>
 
-        <!--<div>
-            {{ titleId }}
+        <div>
+            {{ titleId1 }}
             {{ name }}
-        </div>-->
+        </div>
 
         <div class="lpMyWay">
             <div style="padding: 20px 0"></div>
@@ -60,10 +60,11 @@
         data() {
             return {
                 title: "查看论文文件",
-                titleId: this.$route.params.titleId,
+                titleId1: this.$route.params.titleId1,
                 name: this.$route.params.name,
                 info: null,
                 returnObject: null,
+                id: this.$route.params.titleId,
             }
         },
         created () {
@@ -79,7 +80,7 @@
                     "name": that.name,
                     "studentnumber": "",
                     "teachernumber": "",
-                    "titleid": that.titleId,
+                    "titleid": that.titleId1,
                     "upladdata": "",
                     "version": "",
                     "versionkey": 0
@@ -95,13 +96,19 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/GetTruePaperFile',})
+                this.$router.push(
+                    {
+                        name: 'TeacherGetTruePaperInformation',
+                        params: {
+                            titleId: this.titleId1,
+                        }
+                    }
+                )
             },
             download(path) {
                 return path
             },
         }
-
     }
 </script>
 

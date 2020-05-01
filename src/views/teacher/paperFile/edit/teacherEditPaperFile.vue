@@ -82,7 +82,8 @@
                     {
                         name: 'TeacherGetTruePaperInformation',
                         params: {
-                            titleId: this.titleId,
+                            id: this.$route.params.paperFileId,
+                            titleId: this.$route.params.id,
                         }
                     }
                 )

@@ -120,7 +120,7 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/TeacherMain',})
             },
             selectGroupNumber(item) {
                 let that = this

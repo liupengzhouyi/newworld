@@ -118,7 +118,17 @@
                 return key;
             },
             goBack() {
-                this.$router.push({path: '/TeacherTitle',})
+                if (this.$GLOBAL.userType === 2) {
+                    this.$router.push(
+                        {
+                            name: 'ShowMyTitle',
+                            params: {
+                            }
+                        }
+                    )
+                } else {
+                    this.$router.push({path: '/TeacherTitle',})
+                }
             },
             returnIsSelect() {
                 if (this.$route.params.isSelect === 1) {

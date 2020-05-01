@@ -129,7 +129,7 @@
                 )
             },
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/TeacherMain',})
             },
             handleChange(file, fileList) {
                 this.fileList = fileList;

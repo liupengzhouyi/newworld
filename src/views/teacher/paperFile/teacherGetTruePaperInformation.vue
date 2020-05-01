@@ -52,14 +52,14 @@
                 </el-timeline>
             </div>
         </div>
-        <!--<div>
+        <div>
             <h1>
                 {{ id }}
             </h1>
         </div>
         <div>
             {{ returnObject }}
-        </div>-->
+        </div>
     </div>
 </template>
 
@@ -103,7 +103,7 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/TeacherMain',})
             },
             download(path) {
                 return path
@@ -113,8 +113,9 @@
                     {
                         name: 'TeacherGetHistoryFile',
                         params: {
-                            titleId: temp.id,
+                            titleId1: temp.titleid,
                             name: temp.name,
+                            id: this.$route.params.titleId,
                         }
                     }
                 )
