@@ -1,5 +1,8 @@
 <template>
     <div class="selectProfessionTeacher">
+        <div class="myTop">
+            <el-page-header @back="goBack" content="查看专业教师"></el-page-header>
+        </div>
         <div>
             <h1>
                 {{ title }}
@@ -105,6 +108,9 @@
                     }
                 )
             },
+            goBack() {
+                this.$router.push({path: '/StudentMain',})
+            },
 
         }
 
@@ -117,5 +123,8 @@
         width: 80%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .myTop {
+        padding: 20px 0;
     }
 </style>

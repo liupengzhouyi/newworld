@@ -65,6 +65,9 @@
                 </div>
             </el-card>
         </div>
+        <div>
+            {{ this.$route.params.id }}
+        </div>
         <!--<div>
             <b>
                 {{ temp }}
@@ -91,8 +94,8 @@
         data() {
             return {
                 title: "更新论文文件",
-                titleId: this.$route.params.titleId,
-                name: this.$route.params.name,
+                titleId: this.$route.params.titleId1,
+                name: this.$route.params.name1,
                 fileinfo: null,
                 info: null,
                 filReturnObject: null,
@@ -140,7 +143,14 @@
                 )
             },
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push(
+                    {
+                        name: 'GetTruePaperFile',
+                        params: {
+                            titleId: this.$route.params.id
+                        }
+                    }
+                )
             },
             submitUpload() {
                 let that = this;

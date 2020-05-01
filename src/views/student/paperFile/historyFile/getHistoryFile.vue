@@ -135,7 +135,7 @@
                     {
                         name: 'GetTruePaperFile',
                         params: {
-                            titleId: this.returnId,
+                            titleId: this.$route.params.id
                         }
                     }
                 )

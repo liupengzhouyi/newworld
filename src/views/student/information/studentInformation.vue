@@ -149,7 +149,7 @@
                 this.$router.push({path: '/StudentInformationAir',})
             },
             goBack() {
-                this.$router.push({path: '/',})
+                this.$router.push({path: '/StudentMain',})
             },
             download(path) {
                 return path
@@ -159,7 +159,8 @@
                     {
                         name: 'GetTruePaperFile',
                         params: {
-                            titleId: titleId
+                            titleId: titleId,
+                            pathType: 2,
                         }
                     }
                 )

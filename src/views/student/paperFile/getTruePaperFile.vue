@@ -77,6 +77,12 @@
             </div>
         </div>
 
+        <p>
+            {{ returnObject0 }}
+        </p>
+        <h1>
+            {{ id }}
+        </h1>
         <!--<div>
             {{ returnObject }}
         </div>-->
@@ -90,6 +96,9 @@
             return {
                 title: "查看论文文件",
                 id: this.$route.params.titleId,
+                pathType: this.$route.params.pathType,
+                info0: null,
+                returnObject0: null,
                 info: null,
                 returnObject: null,
                 info2: null,
@@ -103,7 +112,10 @@
         },
         created () {
             let that = this
-            this.$axios.post(
+            if (that.pathType === 2) {
+                that.id = that.$route.params.titleId
+            }
+            that.$axios.post(
                 '/projectfile/getAllByTiitleIdTrue',
                 {
                     "approval": "",
@@ -130,7 +142,7 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/StudentMain',})
             },
             download(path) {
                 return path
@@ -162,8 +174,8 @@
                     {
                         name: 'UpdatePaperFile',
                         params: {
-                            titleId: temp.titleid,
-                            name: temp.name,
+                            titleId1: temp.titleid,
+                            name1: temp.name,
                             id: this.id,
                         }
                     }

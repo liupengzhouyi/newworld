@@ -181,7 +181,7 @@
                 return key;
             },
             goBack() {
-                this.$router.push({path: '/',})
+                this.$router.push({path: '/StudentMain',})
             },
             returnIsSelect() {
                 if (this.$route.params.isSelect === 1) {

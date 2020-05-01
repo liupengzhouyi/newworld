@@ -1,5 +1,8 @@
 <template>
     <div class="studentMain">
+        <div v-show="showKey001">
+            <LiupengHead></LiupengHead>
+        </div>
         <div>
             <div class="header">
                 <h1>高校毕业设计管理体系</h1>
@@ -63,26 +66,35 @@
                 <h2>底部内容</h2>
             </div>
         </div>
+        <p>
+            {{ returnObject0 }}
+        </p>
     </div>
 </template>
 
 <script>
     import SystemAD from "../../../components/systemAD/systemAD";
+    import LiupengHead from "../../../components/tools/liupengHead";
 
     export default {
         name: "studentMain",
-        components: {SystemAD, },
+        components: {LiupengHead, SystemAD, },
         data() {
             return {
+                info0: null,
+                returnObject0: null,
                 info: null,
                 returnObject: null,
                 name: "",
                 phoneNumber: "",
+                showKey001: false,
+                titleId1: 0,
 
             };
         },
         created() {
             let that = this
+            that.isShow001()
             this.$axios.post(
                 '/student/selectByStudentID',
                 {
@@ -103,6 +115,25 @@
                     that.name = that.returnObject.name;
                     that.phoneNumber = that.returnObject.phonenumber;
 
+                }
+            );
+            that.$axios.post(
+                '/project/findStudentApplication',
+                {
+                    "fileurl": "",
+                    "id": 0,
+                    "isselect": 0,
+                    "studentnumber": this.$GLOBAL.userNumber,
+                    "teacherid": 0,
+                    "title": ""
+                }
+            ).then(
+                async function (response) {
+                    console.log(response);
+                    console.log(response.data);
+                    that.info0 = response.data;
+                    that.returnObject0 = that.info0.returnObject[0];
+                    that.titleId1 = that.returnObject0.id;
                 }
             )
         },
@@ -135,7 +166,15 @@
                 this.$router.push({path:'/SelectSysytemAD',})
             },
             studentGetpaperFile() {
-                this.$router.push({path:'/GetTruePaperFile',})
+                this.$router.push(
+                    {
+                        name: 'GetTruePaperFile',
+                        params: {
+                            pathType: 2,
+                            titleId: this.titleId1,
+                        }
+                    }
+                )
             },
             studentInformation() {
                 this.$router.push({path:'/StudentInformation',})
@@ -145,6 +184,15 @@
             },
             selectMyGroupOfTeacher() {
                 this.$router.push({path:'/GroupInformation',})
+            },
+
+            isShow001() {
+                let that = this
+                if (that.$GLOBAL.landing === 1) {
+                    that.showKey001 = false;
+                } else {
+                    that.showKey001 = true;
+                }
             },
         },
 

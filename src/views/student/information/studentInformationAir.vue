@@ -104,7 +104,7 @@
         },
         methods: {
             goBack() {
-                this.$router.push({path: '/',})
+                this.$router.push({path: '/StudentMain',})
             },
             download(path) {
                 return path

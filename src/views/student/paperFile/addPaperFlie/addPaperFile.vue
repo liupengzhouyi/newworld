@@ -140,7 +140,7 @@
                 )
             },
             goBack() {
-                this.$router.push({path:'/',})
+                this.$router.push({path:'/StudentMain',})
             },
             submitUpload() {
                 let that = this;
