@@ -46,7 +46,7 @@
             </div>
         </el-drawer>
 
-        <el-drawer title="聊天群组" :visible.sync="drawer1" :with-header="false" direction="ltr">
+        <el-drawer title="群组成员" :visible.sync="drawer1" :with-header="false" direction="ltr">
             <div class="lpMyWay">
                 <el-card class="box-card">
                     <ul>
@@ -68,6 +68,16 @@
                                 </el-row>
                             </el-card>
                             <div style="padding: 4px 0"></div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li style="list-style-type: none; width: 360px">
+                            <el-card class="interbox-card">
+                                <el-row style="height: 40px">
+                                    <el-button @click="open()" type="success" icon="el-icon-circle-plus-outline" circle></el-button>
+                                </el-row>
+                            </el-card>
+
                         </li>
                     </ul>
                 </el-card>
@@ -92,6 +102,8 @@
                 returnObject: null,
                 info1: null,
                 returnObject1: null,
+                info2: null,
+                returnObject2: null,
                 drawer: false,
                 drawer1: false,
                 groupid: 0,
@@ -147,6 +159,46 @@
                 this.isRouterAlive = false
                 this.$nextTick(() => (this.isRouterAlive = true))
             },
+            open() {
+                this.$prompt('请输入成员编号', '添加新成员', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                }).then(({ value }) => {
+                    let that = this
+                    this.$axios.post(
+                        '/groupnumber/add',
+                        {
+                            "groupid": that.groupid,
+                            "id": 12,
+                            "studentid": value
+                        }
+                    ).then(
+                        async function (response) {
+                            console.log(response);
+                            console.log(response.data);
+                            that.info2 = response.data;
+                            that.returnObject2 = that.info2.returnObject;
+                            if (that.info2.returnKey === true) {
+                                this.$message({
+                                    type: 'success',
+                                    message: '添加成功，成员编号是: ' + value
+                                });
+                            } else {
+                                this.$message({
+                                    type: 'info',
+                                    message: '添加失败'
+                                });
+                            }
+                        }
+                    )
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '取消输入'
+                    });
+                });
+            }
         }
 
     }
