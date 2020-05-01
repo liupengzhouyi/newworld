@@ -48,6 +48,12 @@ import TeacherMain from "../views/teacher/myMainPage/teacherMain";
 import StudentMain from "../views/student/myMainPage/studentMain";
 import ConservatorMain from "../views/conservator/myMainPage/conservatorMain";
 
+import SystemAD from "../components/systemAD/systemAD";
+
+
+
+
+
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
 
@@ -341,6 +347,12 @@ Vue.use(VueRouter)
       name: 'AddFile',
       component: AddFile
     },
+    {
+      path: '/SystemAD',
+      name: 'SystemAD',
+      component: SystemAD
+    },
+
 
 
 
