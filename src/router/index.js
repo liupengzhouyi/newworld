@@ -44,9 +44,9 @@ import GroupInformation from "../views/teacher/group/select/groupInformation";
 import Chat from "../views/teacher/group/chat/chat";
 import ISay from "../components/chat/iSay";
 import TestSay from "../components/chat/testSay";
-
-
-
+import TeacherMain from "../views/teacher/myMainPage/teacherMain";
+import StudentMain from "../views/student/myMainPage/studentMain";
+import ConservatorMain from "../views/conservator/myMainPage/conservatorMain";
 
 import SaySome from '../views/SaySome'
 import AddFile from "../components/AddFile";
@@ -288,6 +288,22 @@ Vue.use(VueRouter)
       name: 'TestSay',
       component: TestSay
     },
+    {
+      path: '/TeacherMain',
+      name: 'TeacherMain',
+      component: TeacherMain
+    },
+    {
+      path: '/StudentMain',
+      name: 'StudentMain',
+      component: StudentMain
+    },
+    {
+      path: '/ConservatorMain',
+      name: 'ConservatorMain',
+      component: ConservatorMain
+    },
+
 
 
 

@@ -15,20 +15,6 @@
         <!--<div>
             {{ groupid }}
         </div>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div style="padding: 20px 0"></div>
         <el-drawer title="聊天群组" :visible.sync="drawer" :with-header="false">
             <div class="lpMyWay">
