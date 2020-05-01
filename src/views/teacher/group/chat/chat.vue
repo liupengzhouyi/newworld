@@ -3,19 +3,20 @@
         <div class="lpMyWay">
             <div>
                 <el-card class="box-card">
-                    <TestSay></TestSay>
+
+                    <TestSay :groupid="chatGroupid" :groupName="groupName" v-if="isRouterAlive"></TestSay>
+                    <el-form>
+                        <el-row>
+                            <el-input v-model="information" placeholder="请输入内容" style="width: 410px" clearable></el-input>
+                            <el-button type="primary" @click="onSubmit" :disabled="bottonKey">发送</el-button>
+                        </el-row>
+                    </el-form>
                 </el-card>
             </div>
-            <el-form>
-                <el-form-item>
-                    <el-input type="textarea" v-model="information"></el-input>
-                </el-form-item>
-                <el-form-item>
-                    <el-button @click="information = ''">取消</el-button>
-                    <el-button type="primary" @click="onSubmit" :disabled="bottonKey">发送</el-button>
-                </el-form-item>
-            </el-form>
         </div>
+        <!--<div>
+            {{ groupid }} ____ {{ chatGroupid }}
+        </div>-->
         <!--<div>
             {{ info3 }}
         </div>
@@ -30,6 +31,7 @@
     export default {
         name: "chat",
         components: {TestSay},
+        props: ['groupid', 'groupName1'],
         data() {
             return {
                 information: "",
@@ -37,6 +39,9 @@
                 returnObject3: null,
                 bottonKey: false,
                 authorId: this.$GLOBAL.userNumber,
+                chatGroupid: this.groupid,
+                groupName: this.groupName1,
+                isRouterAlive: true
             }
         },
         created() {
@@ -57,7 +62,7 @@
                     {
                         "authorid": that.authorId,
                         "day": 0,
-                        "groupid": 12,
+                        "groupid": this.groupid,
                         "hour": 0,
                         "id": 0,
                         "information": that.information.toString(),
@@ -74,15 +79,20 @@
                         that.info3 = response.data;
                         that.returnObject3 = that.info3.returnObject;
                     }
-                )
-            }
+                );
+                this.reload();
+            },
+            reload() {
+                this.isRouterAlive = false
+                this.$nextTick(() => (this.isRouterAlive = true))
+            },
         }
     }
 </script>
 
 <style scoped>
     .lpMyWay {
-        width: 600px;
+        width: 480px;
         height: 100%;
         margin: 0 auto;
         align-items: center;
@@ -106,6 +116,6 @@
 
     .box-card {
         width: 600px;
-        height: 600px;
+        height: 700px;
     }
 </style>

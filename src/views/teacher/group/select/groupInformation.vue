@@ -14,8 +14,25 @@
                     </el-button>
                 </el-row>
             </div>
-            <Chat></Chat>
+            <Chat :groupid="groupid" :groupName1="groupName2" v-if="isRouterAlive"></Chat>
         </div>
+        <!--<div>
+            {{ groupid }}
+        </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div style="padding: 20px 0"></div>
         <el-drawer title="聊天群组" :visible.sync="drawer" :with-header="false">
             <div class="lpMyWay">
@@ -95,6 +112,9 @@
                 returnObject1: null,
                 drawer: false,
                 drawer1: false,
+                groupid: 0,
+                groupName2: "",
+                isRouterAlive: true
             }
         },
         created() {
@@ -122,6 +142,8 @@
             },
             selectGroupNumber(item) {
                 let that = this
+                that.groupid = item.id;
+                that.groupName2 = item.name;
                 this.$axios.post(
                     '/groupnumber/getAllNumber',
                     {
@@ -136,7 +158,12 @@
                         that.info1 = response.data;
                         that.returnObject1 = that.info1.returnObject;
                     }
-                )
+                );
+                this.reload();
+            },
+            reload() {
+                this.isRouterAlive = false
+                this.$nextTick(() => (this.isRouterAlive = true))
             },
         }
 

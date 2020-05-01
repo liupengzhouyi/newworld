@@ -1,13 +1,13 @@
 <template>
     <div class="testSay">
         <div class="lpMyWay">
-            <el-row>
-                <el-button v-show="showBottonkey111" type="success" icon="el-icon-refresh" circle @click="getMessage"></el-button>
-                <el-button v-show="showBottonkey112" type="success" icon="el-icon-loading" circle></el-button>
-            </el-row>
             <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <span style="font-size: xx-large">{{ groupName }}</span>
+                    <el-button style="float: right; padding: 3px 0" v-show="showBottonkey111" type="success" icon="el-icon-refresh" circle @click="getMessage"></el-button>
+                </div>
                 <div>
-                    <el-table :data="returnObject" height="500" border style="width: 100%"
+                    <el-table :data="returnObject" height="500" border="false" style="width: 100%"
                               show-header="true">
                         <el-table-column width="80">
                             <template slot-scope="scope" style="padding: 0">
@@ -50,14 +50,19 @@
                         </el-table-column>
                     </el-table>
                 </div>
+                <div style="padding: 2px"></div>
             </el-card>
         </div>
+        <!--<div>
+            groupid:{{ groupid }}
+        </div>-->
     </div>
 </template>
 
 <script>
     export default {
         name: "testSay",
+        props: ['groupid', 'groupName'],
         data() {
             return {
                 count: 0,
@@ -68,8 +73,7 @@
                 returnObject: null,
                 showBottonkey111: true,
                 showBottonkey112: false,
-
-
+                isRouterAlive: true,
             };
         },
         computed: {
@@ -89,7 +93,7 @@
                         {
                             "authorid": 0,
                             "day": 0,
-                            "groupid": 12,
+                            "groupid": this.groupid,
                             "hour": 0,
                             "id": 0,
                             "information": "",
@@ -113,7 +117,6 @@
                 this.showBottonkey111 = setInterval(true, 1000);
                 this.showBottonkey112 = false;
             },
-
         },
     }
 </script>
@@ -165,7 +168,7 @@
     }
     .box-card {
         width: 480px;
-        height: 500px;
+        height: 600px;
     }
     .lpMyWay {
         width: 480px;
@@ -176,5 +179,25 @@
     .lpText {
         padding: 5px 5px;
         background-color: lemonchiffon;
+    }
+    .text {
+        font-size: 14px;
+    }
+
+    .item {
+        margin-bottom: 18px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+    .clearfix:after {
+        clear: both
+    }
+
+    .box-card {
+        width: 480px;
     }
 </style>
