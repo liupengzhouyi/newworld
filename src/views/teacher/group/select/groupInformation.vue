@@ -6,12 +6,8 @@
         <div class="lpMyWay">
             <div>
                 <el-row>
-                    <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
-                        点我打开群组
-                    </el-button>
-                    <el-button @click="drawer1 = true" type="primary" style="margin-left: 16px;">
-                        点我打开群组信息
-                    </el-button>
+                    <el-button @click="drawer1 = true" type="primary" icon="el-icon-s-custom" style="margin-left: 16px;" circle></el-button>
+                    <el-button @click="drawer = true" type="primary" icon="el-icon-notebook-2" style="margin-left: 16px;" circle></el-button>
                 </el-row>
             </div>
             <Chat :groupid="groupid" :groupName1="groupName2" v-if="isRouterAlive"></Chat>
