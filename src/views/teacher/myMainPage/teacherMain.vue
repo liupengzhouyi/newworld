@@ -143,7 +143,8 @@
             selectMyGroupOfTeacher() {
                 this.$router.push({path:'/GroupInformation',})
             },
-        }
+        },
+
 
     }
 </script>
