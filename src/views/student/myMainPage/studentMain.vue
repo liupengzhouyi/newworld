@@ -37,27 +37,43 @@
                         联系方式: <span style="font-size: x-large">{{ phoneNumber  }}</span>
                     </h3>
                     <h3>更多操作</h3>
-                    <p>我的更多内容</p>
-
-                    <div>
-                        <el-button @click="findTeahcer1()">查看本专业教师</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="findTeacher2()">查看本系教师</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="studentGetApplication">查看我的申请</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="studentGetpaperFile()">查看论文文件</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="studentInformation()">我的信息</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="studentgetMyGroup()">我的讨论组</el-button>
-                    </div>
-
+                    <el-timeline reverse="false">
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="findTeahcer1()">查看本专业教师</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="findTeacher2()">查看本系教师</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="studentGetApplication">查看我的申请</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="studentGetpaperFile()">查看论文文件</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="studentInformation()">我的信息</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="studentgetMyGroup()">我的讨论组</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="studentResetPassword()">修改密码</el-button>
+                            </div>
+                        </el-timeline-item>
+                    </el-timeline>
                 </div>
 
                 <div class="main">
@@ -92,7 +108,16 @@
                 phoneNumber: "",
                 showKey001: false,
                 titleId1: 0,
-
+                activities: [{
+                    content: '活动按期开始',
+                    timestamp: '2018-04-15'
+                }, {
+                    content: '通过审核',
+                    timestamp: '2018-04-13'
+                }, {
+                    content: '创建成功',
+                    timestamp: '2018-04-11'
+                }],
             };
         },
         created() {
@@ -205,6 +230,9 @@
                 } else {
                     that.showKey001 = true;
                 }
+            },
+            studentResetPassword() {
+                this.$router.push({path:'/StudentResetPassword',})
             },
         },
 

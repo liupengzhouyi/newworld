@@ -32,7 +32,7 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="毕业设计选题管理系统"/>
 
-    <div>
+    <!--<div>
       <el-row :gutter="12">
         <el-col :span="8">
           <el-card class="box-card">
@@ -97,7 +97,7 @@
           </el-card>
         </el-col>
       </el-row>
-    </div>
+    </div>-->
   </div>
 </template>
 
