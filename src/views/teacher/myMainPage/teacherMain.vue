@@ -38,20 +38,39 @@
                         联系方式: <span style="font-size: x-large">{{ phoneNumber  }}</span>
                     </h3>
                     <h3>更多操作</h3>
-                    <p>我的更多内容</p>
+                    <el-timeline reverse="false">
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="teacherReSetPassword()">修改密码</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="selectMyGroupOfTeacher()">聊天信息</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="createGroup()">创建群聊</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="uploadTitle()">上传教师题目</el-button>
+                            </div>
+                        </el-timeline-item>
+                        <el-timeline-item align="left">
+                            <div>
+                                <el-button @click="showMeTitle()">教师题目</el-button>
+                            </div>
+                        </el-timeline-item>
+                    </el-timeline>
 
-                    <div>
-                        <el-button @click="showMeTitle()">教师题目</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="uploadTitle()">上传教师题目</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="createGroup()">创建群聊</el-button>
-                    </div>
-                    <div>
-                        <el-button @click="selectMyGroupOfTeacher()">聊天信息</el-button>
-                    </div>
+
+
+
+
+
 
                 </div>
 
@@ -158,6 +177,9 @@
                     that.showKey001 = true;
                 }
             },
+            teacherReSetPassword() {
+                this.$router.push({path:'/TeacherResetPassword',})
+            }
         },
 
 

@@ -49,6 +49,10 @@ import StudentMain from "../views/student/myMainPage/studentMain";
 import ConservatorMain from "../views/conservator/myMainPage/conservatorMain";
 import SelectMyGroup from "../views/student/group/selectMyGroup";
 import StudentResetPassword from "../views/student/rePassword/studentResetPassword";
+import TeacherResetPassword from "../views/teacher/rePassword/teacherResetPassword";
+
+
+
 
 import SystemAD from "../components/systemAD/systemAD";
 import LiupengHead from "../components/tools/liupengHead";
@@ -322,6 +326,13 @@ Vue.use(VueRouter)
       name: 'StudentResetPassword',
       component: StudentResetPassword
     },
+    {
+      path: '/TeacherResetPassword',
+      name: 'TeacherResetPassword',
+      component: TeacherResetPassword
+    },
+
+
 
 
 
