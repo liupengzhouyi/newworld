@@ -54,6 +54,9 @@
                     <div>
                         <el-button @click="studentInformation()">我的信息</el-button>
                     </div>
+                    <div>
+                        <el-button @click="studentgetMyGroup()">我的讨论组</el-button>
+                    </div>
 
                 </div>
 
@@ -185,7 +188,16 @@
             selectMyGroupOfTeacher() {
                 this.$router.push({path:'/GroupInformation',})
             },
-
+            studentgetMyGroup() {
+                this.$router.push(
+                    {
+                        name: 'SelectMyGroup',
+                        params: {
+                            name001: this.name
+                        }
+                    }
+                )
+            },
             isShow001() {
                 let that = this
                 if (that.$GLOBAL.landing === 1) {

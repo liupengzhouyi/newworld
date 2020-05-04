@@ -47,6 +47,8 @@ import TestSay from "../components/chat/testSay";
 import TeacherMain from "../views/teacher/myMainPage/teacherMain";
 import StudentMain from "../views/student/myMainPage/studentMain";
 import ConservatorMain from "../views/conservator/myMainPage/conservatorMain";
+import SelectMyGroup from "../views/student/group/selectMyGroup";
+
 
 import SystemAD from "../components/systemAD/systemAD";
 import LiupengHead from "../components/tools/liupengHead";
@@ -309,6 +311,11 @@ Vue.use(VueRouter)
       path: '/ConservatorMain',
       name: 'ConservatorMain',
       component: ConservatorMain
+    },
+    {
+      path: '/SelectMyGroup',
+      name: 'SelectMyGroup',
+      component: SelectMyGroup
     },
 
 
