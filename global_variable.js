@@ -9,9 +9,6 @@ const imageurl = ""
 const landing = 0
 const professionalid = 0
 
-
-
-
 export default {
     baseURL,
     token,
