@@ -40,7 +40,7 @@
                 </el-table-column>
             </el-table>
         </div>
-        <div>
+        <!--<div>
             {{ info }}
         </div>
         <div>
@@ -52,7 +52,7 @@
             <h1>
                 {{ this.$GLOBAL.professionalid }}
             </h1>
-        </div>
+        </div>-->
     </div>
 </template>
 

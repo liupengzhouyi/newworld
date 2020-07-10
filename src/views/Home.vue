@@ -29,8 +29,9 @@
 
     </el-menu>
 
-    <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="毕业设计选题管理系统"/>
+
+    <img alt="Vue logo" src="../assets/schoolLogo.png" height="512" width="512">
 
     <!--<div>
       <el-row :gutter="12">

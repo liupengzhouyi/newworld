@@ -97,7 +97,6 @@
                 fileUrl: "",
                 fileList: [],
                 temp: "",
-
             }
         },
         created () {

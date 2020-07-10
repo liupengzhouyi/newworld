@@ -5,7 +5,7 @@
         </div>
         <div class="login_form">
             <div>
-                <img alt="Vue logo" src="../../../assets/logo.png">
+                <img alt="Vue logo" src="../../../assets/schoolLogo.png" height="256" width="256">
             </div>
             <div>
                 <input type="text"  class="qxs-ic_user qxs-icon"  placeholder="用户名" v-model="userName">
